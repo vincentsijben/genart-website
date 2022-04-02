@@ -3,7 +3,7 @@ layout: randomness
 twitter-card: summary_large_image
 twitter-title: Randomness in p5.js
 twitter-description: An indepth article about randomness, seeds and noise in p5.js
-twitter-image: randomness.png
+twitter-image: /randomness/randomness.png
 ---
 
 # Randomness in p5js
