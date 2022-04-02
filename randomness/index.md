@@ -1,5 +1,5 @@
 ---
-layout: "randomness"
+layout: "randomness.html"
 food: Pizza
 twitter-card: summary_large_image
 twitter-title: Randomness in p5.js
