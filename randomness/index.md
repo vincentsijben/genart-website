@@ -62,7 +62,7 @@ It doesn't matter if you use 1,2,3 or 10001, 10002, 10003. If the seeds are incr
 
 That's a very tiny increase for every first random call as visualized here:
 
-<div style="left: 0; width: 300px; height: 0; position: relative; padding-bottom: 75%;"><iframe src="https://openprocessing.org/sketch/1533879/embed/?" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>
+<div style="left: 0; width: 500px; height: 0; position: relative; padding-bottom: 75%;"><iframe src="https://openprocessing.org/sketch/1533879/embed/?" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>
 
 <img width="203" alt="image" src="https://user-images.githubusercontent.com/36117924/161337491-348cb1c4-af59-4b69-9ed0-c74dece79af7.gif" width="100"/><br>[source code](https://editor.p5js.org/Vincentsijben/sketches/VQheo8eoW)
 
