@@ -28,7 +28,7 @@ You can feed `randomSeed()` with integers, floats or even negative numbers. Beca
 
 ### Fun facts
 
-1. `m` is 2 to the power of 32. Chrome and other browsers actually use 2 to the power of 128 for their `Math.random()` period, using the [xorshift128+](https://v8.dev/blog/math-random) algorithm. That is a **lot** more, but I guess P5JS choses a more performant, less accurate approach.
+1. `m` is 2 to the power of 32. Chrome and other browsers actually use 2 to the power of 128 for their `Math.random()` period, using the [xorshift128+](https://v8.dev/blog/math-random) algorithm. That is a **lot** more, but P5js is still using the [LCG](https://en.wikipedia.org/wiki/Linear_congruential_generator) algorithm because it's easy to understand, easily implemented and fast.
 
 2. `randomSeed(1013904223)` will have the same output for the next random call as `randomSeed(0)` would.
 
