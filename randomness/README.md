@@ -1,5 +1,5 @@
 ---
-layout: randomness
+layout: "randomness"
 ---
 
 # Randomness in p5js
