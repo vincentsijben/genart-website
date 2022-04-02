@@ -1,12 +1,6 @@
-<!-- SEO / Google -->
-<meta name="author" content="Author here...">
-<meta name="description" content="Description here...">
-
-<!-- Social: Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Title here...">
-<meta name="twitter:description" content="Description here...">
-<meta name="twitter:image" content="path/to/img">
+---
+layout: randomness-in-p5js
+---
 
 # Randomness in p5js
 
