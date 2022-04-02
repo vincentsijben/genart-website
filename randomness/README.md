@@ -30,7 +30,7 @@ You can feed `randomSeed()` with integers, floats or even negative numbers. Beca
 
 1. `m` = 2<sup>32</sup> or 2 to the power of 32. Chrome and other browsers actually use 2<sup>128</sup> for their `Math.random()` period, using the [xorshift128+](https://v8.dev/blog/math-random) algorithm. That is a **lot** more, but P5js is still using the [LCG](https://en.wikipedia.org/wiki/Linear_congruential_generator) algorithm because it's easy to understand, easily implemented and fast.
 
-2. `randomSeed(0)` will produce a new seed of `1013904223`. Therefor, calling random() 2 times when using `randomSeed(0)` is the same as using random() 1 time using `randomSeed(1013904223)`.
+2. `randomSeed(0)` will produce a new seed of `1013904223`. Therefor, calling `random()` 2 times when using `randomSeed(0)` is the same as calling `random()` 1 time using `randomSeed(1013904223)`.
 
 ## Consecutive seeds
 Using different seeds in the draw function of p5js or processing, obviously generates different numbers. But having seeds that are close to each other, will produce numbers that **start** close as well. Because using `randomSeed(frameCount)` is a popular way of 'changing' seeds, here's the output for the first 5 frames:
