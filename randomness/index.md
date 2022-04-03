@@ -3,6 +3,9 @@ layout: post
 title: Randomness in p5.js
 banner: 
   image: https://genart.nl/randomness/randomness.png
+  opacity: 0.618
+  background: "#f00"
+  heading_style: "font-size: 4.25em; font-weight: bold; text-decoration: underline"
 categories: creative coding
 tags: [random, noise, seed, p5js, processing]
 date: April 4th, 2022
