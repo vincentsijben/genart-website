@@ -2,7 +2,7 @@
 layout: post
 title: Randomness in p5.js
 banner: 
-  image: https://genart.nl/randomness/randomness.png
+  image: https://genart.nl/randomness/randomness-background.png
   opacity: 0.618
   background: "silver"
   heading_style: "font-size: 4.25em; font-weight: bold;"
@@ -12,7 +12,7 @@ date: April 4th, 2022
 twitter-card: summary_large_image
 twitter-title: Randomness in p5.js
 twitter-description: An indepth article about randomness, seeds and noise in p5.js
-twitter-image: https://genart.nl/randomness/randomness.png
+twitter-image: https://genart.nl/randomness/randomness-background.png
 ---
 
  <details>
