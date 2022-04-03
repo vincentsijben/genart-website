@@ -17,7 +17,10 @@ twitter-image: https://genart.nl/randomness/randomness-background.png
 
  <details>
   <summary><b><u>TODO</u></b></summary>
+  
 - a lot
+  
+  
  </details>
  
  
@@ -109,3 +112,4 @@ If you'd use `randomSeed(frameCount*100)` then every frame the circle moves 0.38
 
 
 
+<script async src="//jsfiddle.net/vinzzz/ckhvnaux/2/embed/"></script>
