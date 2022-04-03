@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Randomness in p5.js
+subtitle: Each post also has a subtitle
+categories: creative coding
+tags: [random, noise, seed, p5js, processing]
 date: April 4th, 2022
 twitter-card: summary_large_image
 twitter-title: Randomness in p5.js
