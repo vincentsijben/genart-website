@@ -3,7 +3,7 @@ layout: post
 title: Randomness in p5.js
 banner: 
   image: https://genart.nl/randomness/randomness-background.png
-  opacity: 0.618
+  opacity: 0.4
   background: "silver"
   heading_style: "font-size: 4.25em; font-weight: bold;"
 categories: creative coding
