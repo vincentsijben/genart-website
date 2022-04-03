@@ -7,8 +7,7 @@ twitter-description: An indepth article about randomness, seeds and noise in p5.
 twitter-image: https://genart.nl/randomness/randomness.png
 ---
 
-# Randomness in p5js
-April 3rd, 2022
+# Randomness in p5.js
 
  <details>
   <summary><b><u>TODO</u></b></summary>
