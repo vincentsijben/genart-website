@@ -7,6 +7,7 @@ twitter-image: https://genart.nl/randomness/randomness.png
 ---
 
 # Randomness in p5js
+April 3rd, 2022
 
  <details>
   <summary><b><u>TODO</u></b></summary>
