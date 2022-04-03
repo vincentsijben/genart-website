@@ -1,5 +1,6 @@
 ---
 layout: post
+date: April 4th, 2022
 twitter-card: summary_large_image
 twitter-title: Randomness in p5.js
 twitter-description: An indepth article about randomness, seeds and noise in p5.js
