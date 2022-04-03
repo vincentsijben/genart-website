@@ -5,7 +5,7 @@ banner:
   image: https://genart.nl/randomness/randomness-background.png
   opacity: 0.4
   background: "silver"
-  heading_style: "font-size: 4.25em; font-weight: bold;"
+  heading_style: "font-size: 4.25em; font-weight: bold; text-shadow: 2px 2px 2px #CECECE; color: black; "
 categories: creative coding
 tags: random, noise, seed, p5js, processing
 date: April 4th, 2022
