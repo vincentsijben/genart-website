@@ -112,4 +112,4 @@ If you'd use `randomSeed(frameCount*100)` then every frame the circle moves 0.38
 
 
 
-<script async src="//jsfiddle.net/vinzzz/ckhvnaux/2/embed/"></script>
+<iframe width="100%" height="300" src="//jsfiddle.net/vinzzz/ckhvnaux/2/embedded/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
