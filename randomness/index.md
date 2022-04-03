@@ -62,7 +62,7 @@ It doesn't matter if you use 1,2,3 or 10001, 10002, 10003. If the seeds are incr
 
 That's a very tiny increase for every first random call as visualized here:
 
-<div style="left: 0; width: 500px; height: 0; position: relative; padding-bottom: 75%;"><iframe src="https://openprocessing.org/sketch/1533879/embed/?" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>
+
 
 <img width="203" alt="image" src="https://user-images.githubusercontent.com/36117924/161337491-348cb1c4-af59-4b69-9ed0-c74dece79af7.gif" width="100"/><br>[source code](https://editor.p5js.org/Vincentsijben/sketches/VQheo8eoW)
 
@@ -71,7 +71,7 @@ That's a very tiny increase for every first random call as visualized here:
 
 
 #### Patterns using randomSeed
-Check out the next example  with a grid of 9 circles that randomly move at a grid spot with the `random(-5,5)` function. The first random call in this example is for the x-position of the upper left circle (it's literally the first time random() is called after setting the seed). That's why it seems it's only moving vertically, but actually it moves a (very) tiny bit to the right each frame. 
+Check out the next example  with a grid of 9 circles that randomly move at a grid spot with the `random(-5,5)` function. The first random call in this example is for the x-position of the upper left circle (it's literally the first time random() is called after setting the seed). As we've seen, the first random call after consecutive seeds, aren't thát random. That's why it seems it's only moving vertically, but actually it moves a (very) tiny bit to the right each frame. 
 
 Keep in mind: if you use a maximum number in your random() call like `random(-5,5)`, you've essentially expanded the range 10 times now (from 0-1, to 0-10 subtracting 5). The difference for each first random result will then be 10 fold (`≈ 0.0038`).
 So in this example, the upper left circle will move 3.8 pixels to the right every 1000 frames or 16 seconds (1000/60). 
@@ -97,6 +97,8 @@ If you'd use `randomSeed(frameCount*100)` then every frame the circle moves 0.38
 
 <img width="203" alt="image" src="https://user-images.githubusercontent.com/36117924/161350043-835acf67-9b54-4a12-a573-2d2180bc7311.gif" width="100"/>
 
+
+<div style="left: 0; width: 500px; height: 0; position: relative; padding-bottom: 75%;"><iframe src="https://openprocessing.org/sketch/1533879/embed/?" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>
 
 <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 75%;"><iframe src="https://openprocessing.org/sketch/1355242/embed/?" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>
 
