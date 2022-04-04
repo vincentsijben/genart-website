@@ -15,7 +15,7 @@ twitter-description: An indepth article about randomness, seeds and noise in p5.
 twitter-image: https://genart.nl/randomness/randomness-background.png
 ---
 
- 
+## randomSeed
 Using a seed for the `random()` function is literally that: 'seeding' the formula that generates a new (pseudo) random number.
 The [formula p5js uses](https://github.com/processing/p5.js/blob/e32b45367baad694b1f4eeec0586b910bfcf0724/src/math/random.js#L25) is: 
 ```
