@@ -73,7 +73,7 @@ Check out the next example  with a grid of 9 circles that randomly move at a gri
 <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 75%; margin-bottom: 20px;"><iframe src="https://openprocessing.org/sketch/1533879/embed/?" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>
 
 Keep in mind: if you use any max number in your random call like `random(-15,15)`, you've essentially expanded the resulting range 30 times now, from 0-1 to 0-30 (subtracting 15). The formula [multiplies the result](https://github.com/processing/p5.js/blob/e32b45367baad694b1f4eeec0586b910bfcf0724/src/math/random.js#L147) with this expanded number (30 in our case), so the difference for each first random result will then be 30 fold (`≈ 0.0116`).
-So in this example, the upper left circle will move 11.6 pixels to the right every 1000 frames or 16 seconds (1000/60). 
+So in this example, the upper left circle will move 11.6 pixels to the right every 1000 frames. At a default frame rate of 60 fps, that would take 16 seconds. 
 
 But wait, there are more patterns to be seen in this grid, right? Exactly! You can run [this sketch](https://editor.p5js.org/Vincentsijben/sketches/XmNB_sM0L) to get a nice overview of different amount of preceding `random()` calls per consecutive seed. If we set `amountOfPrecedingRandomCalls = 3` and `amountOfResults = 10`, we will get the next table, showing 10 consecutive seeds for 0, 1 ánd 2 extra random calls before actually calculating the `random()` we want. Be aware these are the normalized (0-1) results, so without the multiplication result of using `-15,15`.
 
