@@ -117,6 +117,8 @@ So what can we predict with this output? Well, knowing we are using a random cal
 
 If you would use `amountOfPrecedingRandomCalls = 4` then you could predict the movement of circle number 2. The x-coördinate would jump left and right, and the y-coördinate moves 'slowly' (at a rate of 1.11 frames per second (`0.037016365909948945 * 30`).
 
+Do play with these 2 variables to find interesting patterns when using consecutive seeds! 😎
+
 ### Incrementing seeds by 100
 So we've seen what results we get if we increment the seed by 1 every time. What results do we get if we increment with another amount, lets say 100?
 Well, every seed is `1664525*100` apart, so the returned number from the `random()` function will be `(1664525*100)/4294967296 ≈ 0.038` apart ( `(a * 100) / m`). So, a 100 fold version of the increment of 1. But still, a small amount: it takes 100 frames (about 2 seconds) to move 3.8 pixels.
