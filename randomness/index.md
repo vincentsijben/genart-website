@@ -79,7 +79,7 @@ So in this example, the upper left circle will move 11.6 pixels to the right eve
 So we've seen what results we get if we increment the seed by 1 every time. What results do we get if we increment with another amount, lets say 100?
 Well, every seed is `1664525*100` apart, so the returned number from the `random()` function will be `(1664525*100)/4294967296 ≈ 0.038` apart ( `(a * 100) / m`). So, a 100 fold version of the increment of 1. But still, a small amount: it takes 100 frames (about 2 seconds) to move 3.8 pixels.
 
-If you'd use `randomSeed(frameCount*100)` then every frame the circle moves 0.0116 pixels. So each second it would 'travel' `60*1.16 ≈ 70` pixels (if it wasn't limited through a max random value). 
+If you'd use `randomSeed(frameCount*100)` and then `random(-15,15)`, then every frame the upper left circle moves `100 * 0.0116 = 1.16` pixels. So each second it would 'travel' `60*1.16 ≈ 70` pixels (if it wasn't limited through a max random value). 
 
 <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 75%; margin-bottom: 20px;"><iframe src="https://openprocessing.org/sketch/1534706/embed/?" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>
 
