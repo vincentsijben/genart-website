@@ -22,8 +22,6 @@ twitter-image: https://genart.nl/randomness/randomness-background.png
   
   
  </details>
-
-# Randomness in p5.js
  
 Using a seed for the `random()` function is literally that: 'seeding' the formula that generates a new (pseudo) random number.
 The formula p5js uses is: 
