@@ -63,7 +63,7 @@ That's a very tiny increase for every first random call as visualized here:
 
 <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 75%; margin-bottom: 20px;"><iframe src="https://openprocessing.org/sketch/1534704/embed/?" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>
 
-Watch what happens if we add an extra random() call before our `let s = random(200);`. The visual drastically changes (as only first random() calls after setting a seed behave like previously described).
+Watch what happens if we add an extra random() call before our `let s = random(200);`. The visual drastically changes (as only the first `random()` call behaves like previously described).
 
 <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 75%; margin-bottom: 20px;"><iframe src="https://openprocessing.org/sketch/1534741/embed/?" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>
 
