@@ -87,10 +87,6 @@ If you'd use `randomSeed(frameCount*100)` then every frame the circle moves 0.38
 
 <img width="203" alt="image" src="https://user-images.githubusercontent.com/36117924/161350043-835acf67-9b54-4a12-a573-2d2180bc7311.gif" width="100"/>
 
-
-
-<iframe width="100%" height="300" src="//jsfiddle.net/vinzzz/ckhvnaux/2/embedded/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-
 ### Fun facts
 1. So if you wait long enough, it will start over or 'jump' to the left. How long you ask?
 At frame 1971 it jumps from `4.999338067136705` to `-4.9967864085920155`.
