@@ -71,8 +71,6 @@ Check out the next example  with a grid of 9 circles that randomly move at a gri
 Keep in mind: if you use a maximum number in your random() call like `random(-5,5)`, you've essentially expanded the range 10 times now (from 0-1, to 0-10 subtracting 5). The difference for each first random result will then be 10 fold (`≈ 0.0038`).
 So in this example, the upper left circle will move 3.8 pixels to the right every 1000 frames or 16 seconds (1000/60). 
 
-<img width="203" alt="image" src="https://user-images.githubusercontent.com/36117924/161337043-bbb254f8-bb1b-43a1-bf5f-d9d2408fb70c.gif" width="100"/><br>[source code](https://editor.p5js.org/Vincentsijben/sketches/4let6smUn)
-
 ### Incrementing seeds by 10
 So we've seen what results we get if we increment the seed by 1 every time. What results do we get if we increment with another amount, lets say 10?
 Well, every seed is `1664525*10` apart, so the returned number from the `random()` function will be `(1664525*10)/4294967296 ≈ 0.0038` apart ( (const a * 10) / const m). So again, a 10 fold version of the increment of 1.
