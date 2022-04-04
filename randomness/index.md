@@ -15,13 +15,6 @@ twitter-description: An indepth article about randomness, seeds and noise in p5.
 twitter-image: https://genart.nl/randomness/randomness-background.png
 ---
 
- <details>
-  <summary><b><u>TODO</u></b></summary>
-  
-- a lot
-  
-  
- </details>
  
 Using a seed for the `random()` function is literally that: 'seeding' the formula that generates a new (pseudo) random number.
 The formula p5js uses is: 
@@ -107,3 +100,12 @@ If we look at the random formula and subtract `c` from `m`, then `a` will fit `(
 2. If you wait long enough, the circle will be at its first random position again. How long you ask?
 At frame 2580 we get roughly the same value (`-2.6365921273827553`) as the start value (`-2.6354447472840548`). The difference is only ≈ 0.0011 which is smaller than the 0.0038 difference each frame.
 If we look at the random formula again, we can see that at its core (without offset `c`) we have a number `a` that fits 2580-ish times in `m` (`4294967296/1664525 ≈ 2580`) before going full circle #nopunintended 🤓.
+
+
+ <details>
+  <summary><b><u>TODO</u></b></summary>
+  
+- a lot
+  
+  
+ </details>
