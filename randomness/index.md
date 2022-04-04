@@ -25,7 +25,7 @@ const c = 1013904223;
 Formula: (a * seed + c) % m
 ```
 
-So when using `randomSeed(0)`, a `0` is entered into the formula: `(a * 0 + c) % m = 1013904223`. Because we only want normalized results (a result between 0 and 1), we divide the result by `m`, so we always end up with a number between 0 and 1.
+So when using `randomSeed(0)`, a `0` is entered into the formula: `(a * 0 + c) % m = 1013904223`. Because we only want normalized results (a result between 0 and 1), we divide the result by `m`.
 The value for `m` needs to be very large (as it is the max period) and for its relationships to `a` and `c`. I won't be diving into that part 😎. 
 
 The next time `random()` is called (without first manually setting a randomSeed) it will use the result from the previous calculation, in our case `1013904223`. So the next random number we get will be: `(a * 1013904223 + c) % m = 1196435762`.
