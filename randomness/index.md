@@ -68,12 +68,12 @@ Watch what happens if we add an extra random() call before our `let s = random(2
 <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 75%; margin-bottom: 20px;"><iframe src="https://openprocessing.org/sketch/1534741/embed/?" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>
 
 ### Patterns using randomSeed
-Check out the next example  with a grid of 9 circles that randomly move at a grid spot with the `random(-5,5)` function. The first random call in this example is for the x-position of the upper left circle (it's literally the first time random() is called after setting the seed). As we've seen, the first random call after consecutive seeds, aren't thát random. That's why it seems it's only moving vertically, but actually it moves a (very) tiny bit to the right each frame. 
+Check out the next example  with a grid of 9 circles that randomly move at a grid spot with the `random(-15,15)` function. The first random call in this example is for the x-position of the upper left circle (it's literally the first time random() is called after setting the seed). As we've seen, the first random call after consecutive seeds, aren't thát random. That's why it seems it's only moving vertically, but actually it moves a (very) tiny bit to the right each frame. 
 
 <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 75%; margin-bottom: 20px;"><iframe src="https://openprocessing.org/sketch/1533879/embed/?" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>
 
-Keep in mind: if you use a maximum number in your random call like `random(-5,5)`, you've essentially expanded the range 10 times now (from 0-1, to 0-10 subtracting 5). The difference for each first random result will then be 10 fold (`≈ 0.0038`).
-So in this example, the upper left circle will move 3.8 pixels to the right every 1000 frames or 16 seconds (1000/60). 
+Keep in mind: if you use a min or max number in your random call like `random(-15,15)`, you've essentially expanded the range 30 times now (from 0-1, to 0-30 subtracting 15). The difference for each first random result will then be 30 fold (`≈ 0.0116`).
+So in this example, the upper left circle will move 11.6 pixels to the right every 1000 frames or 16 seconds (1000/60). 
 
 ### Incrementing seeds by 10
 So we've seen what results we get if we increment the seed by 1 every time. What results do we get if we increment with another amount, lets say 10?
