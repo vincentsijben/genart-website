@@ -22,7 +22,8 @@ twitter-image: https://genart.nl/randomness/randomness-background.png
   
   
  </details>
- 
+
+# Randomness in p5.js
  
 Using a seed for the `random()` function is literally that: 'seeding' the formula that generates a new (pseudo) random number.
 The formula p5js uses is: 
@@ -44,7 +45,7 @@ You can feed `randomSeed()` with integers, floats or even negative numbers. Beca
 - a negative number will be counted from the max integer backwards. So `-1` will be `4294967295` and `-2` will be `4294967294` etc. 
 - a float will be converted to an integer by removing all decimals.
 
-### Fun facts
+## Fun facts
 
 1. `m` = 2<sup>32</sup> or 2 to the power of 32. Chrome and other browsers actually use 2<sup>128</sup> for their `Math.random()` period, using the [xorshift128+](https://v8.dev/blog/math-random) algorithm. That is a **lot** more, but P5js is still using the [LCG](https://en.wikipedia.org/wiki/Linear_congruential_generator) algorithm because it's easy to understand, easily implemented and fast.
 
