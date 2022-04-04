@@ -68,7 +68,7 @@ Watch what happens if we add an extra `random()` call before our `let s = random
 <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 75%; margin-bottom: 20px;"><iframe src="https://openprocessing.org/sketch/1534741/embed/?" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>
 
 ### Patterns using randomSeed
-Check out the next example  with a grid of 9 circles that randomly move at a grid spot with the `random(-15,15)` function. The first random call in this example is for the x-position of the upper left circle (it's literally the first time random() is called after setting the seed). As we've seen, the first random call after consecutive seeds, isn't thát random. That's why it seems it's only moving vertically, but actually it moves a (very) tiny bit to the right each frame. FrameRate is set to 10, to slow things down:
+Check out the next example  with a grid of 9 circles that randomly move at a grid spot with the `random(-15,15)` function. The first random call in this example is for the x-position of the upper left circle (it's literally the first time `random()` is called after setting the seed). As we've seen, the first random call after consecutive seeds, isn't thát random. That's why it seems it's only moving vertically, but actually it moves a (very) tiny bit to the right each frame. The framerate is set to 10, to slow things down:
 
 <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 75%; margin-bottom: 20px;"><iframe src="https://openprocessing.org/sketch/1533879/embed/?" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>
 
