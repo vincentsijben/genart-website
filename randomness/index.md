@@ -68,7 +68,7 @@ Check out the next example  with a grid of 9 circles that randomly move at a gri
 
 <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 75%; margin-bottom: 20px;"><iframe src="https://openprocessing.org/sketch/1533879/embed/?" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>
 
-Keep in mind: if you use a maximum number in your random() call like `random(-5,5)`, you've essentially expanded the range 10 times now (from 0-1, to 0-10 subtracting 5). The difference for each first random result will then be 10 fold (`≈ 0.0038`).
+Keep in mind: if you use a maximum number in your random call like `random(-5,5)`, you've essentially expanded the range 10 times now (from 0-1, to 0-10 subtracting 5). The difference for each first random result will then be 10 fold (`≈ 0.0038`).
 So in this example, the upper left circle will move 3.8 pixels to the right every 1000 frames or 16 seconds (1000/60). 
 
 ### Incrementing seeds by 10
