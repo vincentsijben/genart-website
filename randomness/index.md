@@ -75,11 +75,11 @@ Check out the next example  with a grid of 9 circles that randomly move at a gri
 Keep in mind: if you use a min or max number in your random call like `random(-15,15)`, you've essentially expanded the range 30 times now (from 0-1, to 0-30 subtracting 15). The difference for each first random result will then be 30 fold (`≈ 0.0116`).
 So in this example, the upper left circle will move 11.6 pixels to the right every 1000 frames or 16 seconds (1000/60). 
 
-### Incrementing seeds by 10
-So we've seen what results we get if we increment the seed by 1 every time. What results do we get if we increment with another amount, lets say 10?
-Well, every seed is `1664525*10` apart, so the returned number from the `random()` function will be `(1664525*10)/4294967296 ≈ 0.0038` apart ( (const a * 10) / const m). So again, a 10 fold version of the increment of 1.
+### Incrementing seeds by 100
+So we've seen what results we get if we increment the seed by 1 every time. What results do we get if we increment with another amount, lets say 100?
+Well, every seed is `1664525*100` apart, so the returned number from the `random()` function will be `(1664525*100)/4294967296 ≈ 0.038` apart ( (const a * 100) / const m). So, a 100 fold version of the increment of 1.
 
-If you'd use `randomSeed(frameCount*100)` then every frame the circle moves 0.38 pixels. So each second it would 'travel' `60*0.38 ≈ 22` pixels (if it wasn't limited through a max random value). 
+If you'd use `randomSeed(frameCount*100)` then every frame the circle moves 0.0116 pixels. So each second it would 'travel' `60*1.16 ≈ 70` pixels (if it wasn't limited through a max random value). 
 
 <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 75%; margin-bottom: 20px;"><iframe src="https://openprocessing.org/sketch/1534706/embed/?" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>
 
