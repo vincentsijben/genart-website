@@ -78,9 +78,9 @@ So in this example, the upper left circle will move 11.6 pixels to the right eve
 But wait, there are more patterns to be seen in this grid, right? Exactly! You can run [this sketch](https://editor.p5js.org/Vincentsijben/sketches/XmNB_sM0L) to get a nice overview of different amount of random() calls per consecutive seed. Here is the output the first, second ánd third random calls (I've set `amountOfPrecedingRandomCalls = 3` and `amountOfResults = 10`).
 
 ```
-seed  preceding random calls  result              difference
-1	    0	                      0.23645552527159452	0
-2	    0	                      0.23684307769872248	0.00038755242712795734
+seed	preceding random calls  result              	difference
+1	0	                0.23645552527159452	0
+2	0	                0.23684307769872248	0.00038755242712795734
 3	0	0.23723063012585044	0.00038755242712795734
 4	0	0.2376181825529784	0.00038755242712795734
 5	0	0.23800573498010635	0.00038755242712795734
