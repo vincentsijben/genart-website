@@ -75,6 +75,44 @@ Check out the next example  with a grid of 9 circles that randomly move at a gri
 Keep in mind: if you use any max number in your random call like `random(-15,15)`, you've essentially expanded the resulting range 30 times now, from 0-1 to 0-30 (subtracting 15). The formula [multiplies the result](https://github.com/processing/p5.js/blob/e32b45367baad694b1f4eeec0586b910bfcf0724/src/math/random.js#L147) with this expanded number (30 in our case), so the difference for each first random result will then be 30 fold (`≈ 0.0116`).
 So in this example, the upper left circle will move 11.6 pixels to the right every 1000 frames or 16 seconds (1000/60). 
 
+But wait, there are more patterns to be seen in this grid, right? Exactly! You can run [this sketch](https://editor.p5js.org/Vincentsijben/sketches/XmNB_sM0L) to get a nice overview of different amount of random() calls per consecutive seed. Here is the output the first, second ánd third random calls (I've set `amountOfPrecedingRandomCalls = 3` and `amountOfResults = 10`).
+
+```
+seed  preceding random calls  result              difference
+1	    0	                      0.23645552527159452	0
+2	    0	                      0.23684307769872248	0.00038755242712795734
+3	0	0.23723063012585044	0.00038755242712795734
+4	0	0.2376181825529784	0.00038755242712795734
+5	0	0.23800573498010635	0.00038755242712795734
+6	0	0.2383932874072343	0.00038755242712795734
+7	0	0.23878083983436227	0.00038755242712795734
+8	0	0.23916839226149023	0.00038755242712795734
+9	0	0.23955594468861818	0.00038755242712795734
+10	0	0.23994349711574614	0.00038755242712795734
+	""		""	""
+	1	1	0.3692706737201661	0
+	2	1	0.4599744388833642	0.09070376516319811
+	1	0.5506782040465623	0.09070376516319811
+	4	1	0.6413819692097604	0.09070376516319811
+	5	1	0.7320857343729585	0.09070376516319811
+	6	1	0.8227894995361567	0.09070376516319811
+	7	1	0.9134932646993548	0.09070376516319811
+	8	1	0.004197029862552881	-0.9092962348368019
+	9	1	0.094900795025751	0.09070376516319811
+	10	1	0.1856045601889491	0.09070376516319811
+	""		""	""
+	1	2	0.5042420323006809	0
+	2	2	0.18895030464045703	-0.31529172766022384
+	3	2	0.8736585769802332	0.6847082723397762
+	4	2	0.5583668493200094	-0.31529172766022384
+	5	2	0.2430751216597855	-0.31529172766022384
+	6	2	0.9277833939995617	0.6847082723397762
+	7	2	0.6124916663393378	-0.31529172766022384
+	8	2	0.297199938679114	-0.31529172766022384
+	9	2	0.9819082110188901	0.6847082723397762
+	10	2	0.6666164833586663	-0.31529172766022384
+```
+
 ### Incrementing seeds by 100
 So we've seen what results we get if we increment the seed by 1 every time. What results do we get if we increment with another amount, lets say 100?
 Well, every seed is `1664525*100` apart, so the returned number from the `random()` function will be `(1664525*100)/4294967296 ≈ 0.038` apart ( `(a * 100) / m`). So, a 100 fold version of the increment of 1. But still, a small amount: it takes 100 frames (about 2 seconds) to move 3.8 pixels.
