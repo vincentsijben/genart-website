@@ -89,17 +89,6 @@ Check out the next example  with a grid of 9 circles that randomly move at a gri
 Keep in mind: if you use a maximum number in your random() call like `random(-5,5)`, you've essentially expanded the range 10 times now (from 0-1, to 0-10 subtracting 5). The difference for each first random result will then be 10 fold (`≈ 0.0038`).
 So in this example, the upper left circle will move 3.8 pixels to the right every 1000 frames or 16 seconds (1000/60). 
 
-#### Fun facts
-1. So if you wait long enough, it will start over or 'jump' to the left. How long you ask?
-At frame 1971 it jumps from `4.999338067136705` to `-4.9967864085920155`.
-If we look at the random formula and subtract `c` from `m`, then `a` will fit `(m-c)/a ≈ 1971` times in `m`.
-
-2. If you wait long enough, the circle will be at its first random position again. How long you ask?
-At frame 2580 we get roughly the same value (`-2.6365921273827553`) as the start value (`-2.6354447472840548`). The difference is only ≈ 0.0011 which is smaller than the 0.0038 difference each frame.
-If we look at the random formula again, we can see that at its core (without offset `c`) we have a number `a` that fits 2580-ish times in `m` (`4294967296/1664525 ≈ 2580`) before going full circle #nopunintended 🤓.
-
-
-
 <img width="203" alt="image" src="https://user-images.githubusercontent.com/36117924/161337043-bbb254f8-bb1b-43a1-bf5f-d9d2408fb70c.gif" width="100"/><br>[source code](https://editor.p5js.org/Vincentsijben/sketches/4let6smUn)
 
 ### Incrementing seeds by 10
@@ -113,3 +102,12 @@ If you'd use `randomSeed(frameCount*100)` then every frame the circle moves 0.38
 
 
 <iframe width="100%" height="300" src="//jsfiddle.net/vinzzz/ckhvnaux/2/embedded/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+
+### Fun facts
+1. So if you wait long enough, it will start over or 'jump' to the left. How long you ask?
+At frame 1971 it jumps from `4.999338067136705` to `-4.9967864085920155`.
+If we look at the random formula and subtract `c` from `m`, then `a` will fit `(m-c)/a ≈ 1971` times in `m`.
+
+2. If you wait long enough, the circle will be at its first random position again. How long you ask?
+At frame 2580 we get roughly the same value (`-2.6365921273827553`) as the start value (`-2.6354447472840548`). The difference is only ≈ 0.0011 which is smaller than the 0.0038 difference each frame.
+If we look at the random formula again, we can see that at its core (without offset `c`) we have a number `a` that fits 2580-ish times in `m` (`4294967296/1664525 ≈ 2580`) before going full circle #nopunintended 🤓.
