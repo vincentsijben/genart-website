@@ -113,6 +113,10 @@ seed	preceding random calls  result              	difference
 10	2			0.6666164833586663	-0.31529172766022384
 ```
 
+So what can we predict with this output? Well, knowing we are using a random call for x position and then a random call for y position, we can see that the first random call has differences of ≈ 0.00038, while the second random call has differences of ≈ 0.09. So the y-coördinate moves approx. 234 times faster than the x-coördinate, resulting in what seams a vertical movement only.
+
+If you would use `amountOfPrecedingRandomCalls = 4` then you could predict the movement of circle number 2. The x-coördinate would jump left and right, and the y-coördinate moves 'slowly'.
+
 ### Incrementing seeds by 100
 So we've seen what results we get if we increment the seed by 1 every time. What results do we get if we increment with another amount, lets say 100?
 Well, every seed is `1664525*100` apart, so the returned number from the `random()` function will be `(1664525*100)/4294967296 ≈ 0.038` apart ( `(a * 100) / m`). So, a 100 fold version of the increment of 1. But still, a small amount: it takes 100 frames (about 2 seconds) to move 3.8 pixels.
