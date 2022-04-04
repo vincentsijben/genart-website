@@ -100,7 +100,8 @@ If we look at the random formula again, we can see that at its core (without off
 
  <details>
   <summary><b><u>TODO</u></b></summary>
-  
+- explain pattern of second random() call
+- test all of this in processing which uses https://docs.oracle.com/javase/8/docs/api/java/util/Random.html
 - a lot
   
   
