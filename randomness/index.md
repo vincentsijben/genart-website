@@ -72,7 +72,7 @@ Check out the next example  with a grid of 9 circles that randomly move at a gri
 
 <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 75%; margin-bottom: 20px;"><iframe src="https://openprocessing.org/sketch/1533879/embed/?" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>
 
-Keep in mind: if you use a min or max number in your random call like `random(-15,15)`, you've essentially expanded the range 30 times now, from 0-1 to 0-30 (subtracting 15). The formula [multiplies the result](https://github.com/processing/p5.js/blob/e32b45367baad694b1f4eeec0586b910bfcf0724/src/math/random.js#L147) with this expanded number (30 in our case), so the difference for each first random result will then be 30 fold (`≈ 0.0116`).
+Keep in mind: if you use a min or max number in your random call like `random(-15,15)`, you've essentially expanded the resulting range 30 times now, from 0-1 to 0-30 (subtracting 15). The formula [multiplies the result](https://github.com/processing/p5.js/blob/e32b45367baad694b1f4eeec0586b910bfcf0724/src/math/random.js#L147) with this expanded number (30 in our case), so the difference for each first random result will then be 30 fold (`≈ 0.0116`).
 So in this example, the upper left circle will move 11.6 pixels to the right every 1000 frames or 16 seconds (1000/60). 
 
 ### Incrementing seeds by 100
