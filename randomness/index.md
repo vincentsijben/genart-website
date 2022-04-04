@@ -61,13 +61,7 @@ It doesn't matter if you use 1,2,3 or 10001, 10002, 10003. If the seeds are incr
 
 That's a very tiny increase for every first random call as visualized here:
 
-
-
-<img width="203" alt="image" src="https://user-images.githubusercontent.com/36117924/161337491-348cb1c4-af59-4b69-9ed0-c74dece79af7.gif" width="100"/><br>[source code](https://editor.p5js.org/Vincentsijben/sketches/VQheo8eoW)
-
-
-
-
+<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 75%;"><iframe src="https://openprocessing.org/sketch/1534704/embed/?" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>
 
 ### Patterns using randomSeed
 Check out the next example  with a grid of 9 circles that randomly move at a grid spot with the `random(-5,5)` function. The first random call in this example is for the x-position of the upper left circle (it's literally the first time random() is called after setting the seed). As we've seen, the first random call after consecutive seeds, aren't thát random. That's why it seems it's only moving vertically, but actually it moves a (very) tiny bit to the right each frame. 
