@@ -17,14 +17,13 @@ twitter-image: https://genart.nl/randomness/randomness-background.png
 
  
 Using a seed for the `random()` function is literally that: 'seeding' the formula that generates a new (pseudo) random number.
-The formula p5js uses is: 
+The [formula p5js uses](https://github.com/processing/p5.js/blob/e32b45367baad694b1f4eeec0586b910bfcf0724/src/math/random.js#L25) is: 
 ```
 const m = 4294967296;
 const a = 1664525;
 const c = 1013904223;
 Formula: (a * seed + c) % m
 ```
-[source](https://github.com/processing/p5.js/blob/e32b45367baad694b1f4eeec0586b910bfcf0724/src/math/random.js#L25)
 
 So when using `randomSeed(0)`, a `0` is entered into the formula: `(a * 0 + c) % m = 1013904223`. Because we only want normalized results (a result between 0 and 1), we divide the result by `m`, so we always end up with a number between 0 and 1.
 The value for `m` needs to be very large (as it is the max period) and for its relationships to `a` and `c`. I won't be diving into that part 😎. 
