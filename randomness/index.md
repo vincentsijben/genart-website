@@ -113,9 +113,9 @@ seed	preceding random calls  result              	difference
 10	2			0.6666164833586663	-0.31529172766022384
 ```
 
-So what can we predict with this output? Well, knowing we are using a random call for x position and then a random call for y position, we can see that the first random call has differences of ≈ 0.00038, while the second random call has differences of ≈ 0.09. So the y-coördinate moves approx. 234 times faster than the x-coördinate, resulting in what seams a vertical movement only.
+So what can we predict with this output? Well, knowing we are using a random call for x position and then a random call for y position, we can see that the first random call has differences of ≈ 0.00038, while the second random call has differences of ≈ 0.09. So the y-coördinate of circle 1 moves approx. 234 times faster than the x-coördinate, resulting in what seams a vertical movement only.
 
-If you would use `amountOfPrecedingRandomCalls = 4` then you could predict the movement of circle number 2. The x-coördinate would jump left and right, and the y-coördinate moves 'slowly'.
+If you would use `amountOfPrecedingRandomCalls = 4` then you could predict the movement of circle number 2. The x-coördinate would jump left and right, and the y-coördinate moves 'slowly' (at a rate of 1.11 frames per second (`0.037016365909948945 * 30`).
 
 ### Incrementing seeds by 100
 So we've seen what results we get if we increment the seed by 1 every time. What results do we get if we increment with another amount, lets say 100?
