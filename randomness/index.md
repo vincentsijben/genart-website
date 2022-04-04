@@ -77,17 +77,20 @@ Well, every seed is `1664525*10` apart, so the returned number from the `random(
 
 If you'd use `randomSeed(frameCount*100)` then every frame the circle moves 0.38 pixels. So each second it would 'travel' `60*0.38 ≈ 22` pixels (if it wasn't limited through a max random value). 
 
-<iframe src="https://openprocessing.org/sketch/1534706/embed/" width="400" height="400"></iframe>
+<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 75%;"><iframe src="https://openprocessing.org/sketch/1534706/embed/?" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen></iframe></div>
 
 ### Fun facts
-1. So if you wait long enough, it will start over or 'jump' to the left. How long you ask?
+<details>
+<summary>So if you wait long enough, the upper left circle will start over or 'jump' to the left. How long you ask?</summary>
 At frame 1971 it jumps from `4.999338067136705` to `-4.9967864085920155`.
 If we look at the random formula and subtract `c` from `m`, then `a` will fit `(m-c)/a ≈ 1971` times in `m`.
-
-2. If you wait long enough, the circle will be at its first random position again. How long you ask?
+ </details>
+ 
+<details>
+<summary>Again, if you wait long enough, the circle will be at its first random position again. How long you ask?</summary>
 At frame 2580 we get roughly the same value (`-2.6365921273827553`) as the start value (`-2.6354447472840548`). The difference is only ≈ 0.0011 which is smaller than the 0.0038 difference each frame.
 If we look at the random formula again, we can see that at its core (without offset `c`) we have a number `a` that fits 2580-ish times in `m` (`4294967296/1664525 ≈ 2580`) before going full circle #nopunintended 🤓.
-
+ </details>
 
  <details>
   <summary><b><u>TODO</u></b></summary>
