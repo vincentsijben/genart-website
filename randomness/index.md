@@ -77,7 +77,7 @@ Well, every seed is `1664525*10` apart, so the returned number from the `random(
 
 If you'd use `randomSeed(frameCount*100)` then every frame the circle moves 0.38 pixels. So each second it would 'travel' `60*0.38 ≈ 22` pixels (if it wasn't limited through a max random value). 
 
-<img width="203" alt="image" src="https://user-images.githubusercontent.com/36117924/161350043-835acf67-9b54-4a12-a573-2d2180bc7311.gif" width="100"/>
+<iframe src="https://openprocessing.org/sketch/1534706/embed/" width="400" height="400"></iframe>
 
 ### Fun facts
 1. So if you wait long enough, it will start over or 'jump' to the left. How long you ask?
