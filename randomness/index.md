@@ -53,7 +53,7 @@ frameCount  random call 1  random call 2
 
 For all **random call 1**'s, the difference between every new seed is exactly 1664525 every single time (as long as you increment the seed with `1`, like in our example). 
 
-That number `1664525` is exactly the [const a in the random() formula](https://github.com/processing/p5.js/blob/e32b45367baad694b1f4eeec0586b910bfcf0724/src/math/random.js#L17). So if you put in seeds incremented by 1, because of the multiplication with `a`, the difference between every result will also be `a`.
+That number `1664525` is exactly the [const a](https://github.com/processing/p5.js/blob/e32b45367baad694b1f4eeec0586b910bfcf0724/src/math/random.js#L17) in the `random()` formula. So if you put in seeds incremented by 1, because of the multiplication with `a`, the difference between every result will also be `a`.
 
 As you can see in the output table, this only applies for the first random() call! A second random call will not use a `2` for it's seed, but the result from seed `1`, be it `1015568748`. 
 
