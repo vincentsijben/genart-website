@@ -1,9 +1,8 @@
 ---
 title: GenArt
 subtitle: Creative coding enthusiast
-banner: 
 sidebar: []
-
+header_transparent: true
 twitter-card: summary_large_image
 twitter-title: Creative coding with GenArt
 twitter-description: Creative coding with GenArt
