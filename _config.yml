@@ -4,3 +4,8 @@ remote_theme: "jeffreytse/jekyll-theme-yat"
 title: Creative coding with GenArt
 email: info@genart.nl
 author: vincentsijben
+defaults:
+  home:
+    heading: "GenArt"
+    subheading: "Creative coding enthusiast"
+    banner: "https://genart.nl/randomness/bg-randomness.png"
