@@ -17,6 +17,8 @@ twitter-image: https://genart.nl/randomness/randomness-background.png
 
 # GenArt
 
+<img src="logo-genart.png" alt="GenArt" />
+
 Hi there! 
 Go check out my indepth article about [randomness in p5.js](randomness/).
 
