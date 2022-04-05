@@ -1,5 +1,4 @@
 ---
-layout: default
 title: GenArt
 subtitle: Creative coding enthusiast
 banner: 
