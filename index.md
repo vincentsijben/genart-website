@@ -9,7 +9,7 @@ twitter-title: Creative coding with GenArt
 twitter-description: Creative coding with GenArt
 twitter-image: https://genart.nl/randomness/randomness-background.png
 ---
-<img src="logo-genart.png" alt="GenArt" />
+<img src="logo-genart.png" alt="GenArt" width="200"/>
 
 Hi there! 
 Go check out my indepth article about [randomness in p5.js](randomness/).
