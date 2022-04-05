@@ -9,9 +9,6 @@ twitter-title: Creative coding with GenArt
 twitter-description: Creative coding with GenArt
 twitter-image: https://genart.nl/randomness/randomness-background.png
 ---
-
-# GenArt
-
 <img src="logo-genart.png" alt="GenArt" />
 
 Hi there! 
