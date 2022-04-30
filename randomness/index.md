@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Randomness in p5.js
+title: A deep dive into randomness (in p5.js)
 banner: 
   image: https://genart.nl/randomness/randomness-background.png
   opacity: 0.4
