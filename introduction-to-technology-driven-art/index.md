@@ -3,7 +3,7 @@ layout: post
 title: An introduction to Technology Driven Art
 subtitle: (workshop @ Maastricht Institute of Arts)
 banner: 
-  image: https://genart.nl/randomness/randomness-background.png
+  image: https://genart.nl/introduction-to-technology-driven-art/creative-coding-background.png
   opacity: 0.4
   background: "silver"
   heading_style: "font-size: 4.25em; font-weight: bold; text-shadow: 2px 2px 2px #000; color: #FFF; "
@@ -13,7 +13,7 @@ date: September 10th, 2022
 twitter-card: summary_large_image
 twitter-title: Introduction Technology Driven Art
 twitter-description: workshops p5.js at Maastricht Institute of Art
-twitter-image: https://genart.nl/randomness/randomness-background.png
+twitter-image: https://genart.nl/introduction-to-technology-driven-art/creative-coding-background.png
 ---
 
 ## Random seeds
