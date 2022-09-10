@@ -32,12 +32,16 @@ Formula: (a * seed + c) % m
 So when using `randomSeed(0)`, a `0` is entered into the formula: `(a * 0 + c) % m = 1013904223`. Because we only want normalized results (a result between 0 and 1), we divide the result by `m`.
 The value for `m` needs to be very large (as it is the max period) and for its relationships to `a` and `c`. I won't be diving into that part 😎. 
 
+![ledmatrix with colored mushroom image](mushroom.png)
+
 The next time `random()` is called (without first manually setting a randomSeed) it will use the result from the previous calculation, in our case `1013904223`. So the next random number we get will be: `(a * 1013904223 + c) % m = 1196435762`.
 
 You can feed `randomSeed()` with integers, floats or even negative numbers. Because of the [unsigned right shift](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift) (`value >>> 0`) in the [randomSeed](https://github.com/processing/p5.js/blob/e32b45367baad694b1f4eeec0586b910bfcf0724/src/math/random.js#L34) function, they will be converted to an integer between 0 and 4294967295.
 - a positive integer will be the same after converting
 - a negative number will be counted from the max integer backwards. So `-1` will be `4294967295` and `-2` will be `4294967294` etc. 
 - a float will be converted to an integer by removing all decimals.
+
+![ledmatrix with black and white space invaders enemy character](space-invaders.png)
 
 That large number `4294967296` for `m` = 2<sup>32</sup> or 2 to the power of 32. Chrome and other browsers actually use 2<sup>128</sup> for their `Math.random()` period, using the [xorshift128+](https://v8.dev/blog/math-random) algorithm. That is a **lot** more, but P5js is still using the [LCG](https://en.wikipedia.org/wiki/Linear_congruential_generator) algorithm because it's easy to understand, easily implemented and fast.
 
