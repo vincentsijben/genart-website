@@ -1,7 +1,7 @@
 ---
 layout: post
-title: An introduction to Technology Driven Art
-subtitle: (workshop @ Maastricht Institute of Arts)
+title: Technology Driven Art
+subtitle: An introduction to Creative Coding
 banner: 
   image: https://genart.nl/introduction-to-technology-driven-art/creative-coding-background.png
   opacity: 0.4
@@ -11,10 +11,13 @@ categories: creative coding
 tags: maastricht, art, p5js, processing
 date: September 10th, 2022
 twitter-card: summary_large_image
-twitter-title: Introduction Technology Driven Art
+twitter-title: An introduction to Creative Coding - Technology Driven Art
 twitter-description: workshops p5.js at Maastricht Institute of Art
 twitter-image: https://genart.nl/introduction-to-technology-driven-art/creative-coding-background.png
 ---
+
+## Workshop Maastricht Institute of Arts
+This page
 
 ## Random seeds
 Using a seed for a `random()` function is literally that: 'seeding' the formula that generates a new (pseudo) random number.
