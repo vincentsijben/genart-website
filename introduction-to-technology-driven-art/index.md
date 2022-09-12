@@ -40,7 +40,7 @@ if (evening == true) {
   // open curtains
 }
 ```
-In de "else" regel hoef je dus niet meer opnieuw iets te controleren, die wordt enkel uitgevoerd als de IF conditie níet waar is.
+In de **else** regel hoef je dus niet meer opnieuw iets te controleren, die wordt enkel uitgevoerd als de **if** conditie níet waar is.
 
 
 ## Random seeds
