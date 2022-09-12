@@ -26,7 +26,7 @@ if (evening == true) {
   // close curtains
 }
 ```
-Maar vaak wil je óók iets anders uitvoeren als die conditie níet waar is. Je kunt dan weliswaar dit doen:
+Maar vaak wil je óók iets uitvoeren als die conditie níet waar is. Je kunt dan weliswaar dit doen:
 ```Javascript
 if (evening == false) {
   // open curtains
