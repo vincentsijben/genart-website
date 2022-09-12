@@ -42,6 +42,9 @@ if (evening == true) {
 ```
 In de **else** regel hoef je dus niet meer opnieuw iets te controleren, die wordt enkel uitgevoerd als de **if** conditie níet waar is.
 
+Een werkend voorbeeld in P5.js:
+<script async src="//jsfiddle.net/vinzzz/4zrtjc1b/5/embed/js,result/"></script>
+
 
 ## Random seeds
 Using a seed for a `random()` function is literally that: 'seeding' the formula that generates a new (pseudo) random number.
