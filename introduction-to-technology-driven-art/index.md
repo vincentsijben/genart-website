@@ -32,7 +32,7 @@ if (evening == false) {
   // open curtains
 }
 ```
-Maar we kunnen dat mooi combineren met de zogenaamde IF-ELSE constructie:
+Maar als de conditie die we controleren over hetzelfde gaat, kunnen we de code mooi combineren met de zogenaamde **if else** constructie:
 ```Javascript
 if (evening == true) {
   // close curtains
