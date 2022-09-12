@@ -20,7 +20,7 @@ twitter-image: https://genart.nl/introduction-to-technology-driven-art/creative-
 This page
 
 ### Condities
-Als je afhankelijkheden wilt inbouwen in je werk, zul je condities moeten toevoegen in je code. Enkel in spécifieke gevallen wil je dat bepaalde code wordt uitgevoerd. Bijvoorbeeld: enkel als het avond is moeten de gordijnen dicht gaan. We zeggen dan in pseudocode "Áls iets waar is, voer code uit". In code ziet dat zo uit:
+Als je afhankelijkheden wilt inbouwen in je werk, zul je condities moeten toevoegen in je code. Enkel in spécifieke gevallen wil je dat bepaalde code wordt uitgevoerd. Bijvoorbeeld: enkel als het avond is moeten de gordijnen dicht gaan. We zeggen dan in pseudocode **als iets wáár is, voer code uit**. In code ziet dat zo uit:
 ```Javascript
 if (evening == true) {
   // close curtains
