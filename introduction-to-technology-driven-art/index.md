@@ -49,7 +49,7 @@ Every consecutive call of `random()` will use the resulting seed from its previo
 
 ## Consecutive seeds
 Using different seeds in the draw function of p5js or processing, obviously generates different numbers. But having seeds that are close to each other, will produce numbers that **start** close as well. Because using `randomSeed(frameCount)` is a popular way of 'changing' seeds, here's the output for the first 5 frames:
-```
+```javascript
 frameCount  random call 1  random call 2
 1           1015568748     1586005467
 2           1017233273     1975575172
