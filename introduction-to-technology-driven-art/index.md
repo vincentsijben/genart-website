@@ -19,6 +19,30 @@ twitter-image: https://genart.nl/introduction-to-technology-driven-art/creative-
 ## Workshop Maastricht Institute of Arts
 This page
 
+### Condities
+Als je afhankelijkheden wilt toevoegen aan je werk zul je condities moeten toevoegen in je code. Enkel in specifieke gevallen wil je dat bepaalde code wordt uitgevoerd. We zeggen dan "Áls iets waar is, voer code uit". In code ziet dat zo uit:
+```Javascript
+if (evening == true) {
+  // close curtains
+}
+```
+Maar vaak wil je óók iets anders uitvoeren als die conditie níet waar is. Je kunt dan weliswaar dit doen:
+```Javascript
+if (evening == false) {
+  // open curtains
+}
+```
+Maar we kunnen dat mooi combineren met de zogenaamde IF-ELSE constructie:
+```Javascript
+if (evening == true) {
+  // close curtains
+} else {
+  // open curtains
+}
+```
+In de "else" regel hoef je dus niet meer opnieuw iets te controleren, die wordt enkel uitgevoerd als de IF conditie níet waar is.
+
+
 ## Random seeds
 Using a seed for a `random()` function is literally that: 'seeding' the formula that generates a new (pseudo) random number.
 The [formula p5js uses](https://github.com/processing/p5.js/blob/e32b45367baad694b1f4eeec0586b910bfcf0724/src/math/random.js#L25) is: 
