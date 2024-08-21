@@ -4,4 +4,4 @@ permalink: .well-known/security.txt
 ---
 Contact: mailto:info@genart.nl
 Expires: 2025-08-18T22:00:00.000Z
-Encryption: https://genart.nl/pgp-key-does-not-exist.txt
+Encryption: 
