@@ -13,6 +13,7 @@
   <body>
 
     <header>
+      <div id="genart-widget"></div>
       <div class="container">
         <a id="a-title" href="{{ '/' | relative_url }}">
           <h1>{{ site.title | default: site.github.repository_name }}</h1>
@@ -34,5 +35,6 @@
         {{ content }}
       </section>
     </div>
+     <script src="sketch.js"></script>
   </body>
 </html>
