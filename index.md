@@ -19,3 +19,7 @@ So, go check out my in-depth article about [randomness in p5.js](randomness/) (s
 ## Contact
 * info@genart.nl
 * https://github.com/vincentsijben
+
+  <!-- p5.js -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+  <script src="./sketch.js"></script>
