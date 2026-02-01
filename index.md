@@ -10,7 +10,9 @@ twitter-image: https://genart.nl/randomness/randomness-background.png
 ---
 <!-- <img src="logo-genart.png" alt="GenArt" width="200"/> -->
 
-<div id="genart-widget"></div>
+<!-- p5.js -->
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
+<script src="./sketch.js"></script>
 
 A bit of a weird name for a company, as 'genart' is an abbreviation for generative art. But hey, I needed a name, and I already owned genart.nl 😎
 Hi there! My name is Vincent Sijben, I'm a lecturer creative coding over at Maastricht Institute of Arts. In my spare time I like to dive into topics of creative coding, but never took the ~~chance~~ time to write about them...
@@ -22,6 +24,4 @@ So, go check out my in-depth article about [randomness in p5.js](randomness/) (s
 * info@genart.nl
 * https://github.com/vincentsijben
 
-  <!-- p5.js -->
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.min.js"></script>
-  <script src="./sketch.js"></script>
+
