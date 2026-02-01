@@ -8,7 +8,9 @@ twitter-title: Creative coding with GenArt
 twitter-description: Creative coding with GenArt
 twitter-image: https://genart.nl/randomness/randomness-background.png
 ---
-<img src="logo-genart.png" alt="GenArt" width="200"/>
+<!-- <img src="logo-genart.png" alt="GenArt" width="200"/> -->
+
+<div id="genart-widget"></div>
 
 A bit of a weird name for a company, as 'genart' is an abbreviation for generative art. But hey, I needed a name, and I already owned genart.nl 😎
 Hi there! My name is Vincent Sijben, I'm a lecturer creative coding over at Maastricht Institute of Arts. In my spare time I like to dive into topics of creative coding, but never took the ~~chance~~ time to write about them...
