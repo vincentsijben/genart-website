@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#7b61ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Notenquiz">
+  <title>Notenquiz – altsaxofoon, klarinet en trompet</title>
+  <meta name="description" content="Notenquiz voor jonge muzikanten (altsaxofoon, klarinet, trompet): welke noot is dit?">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎷</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/abcjs@6.7.1/dist/abcjs-basic-min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/tone@15.1.22/build/Tone.js" defer></script>
+  <script src="js/notes.js" defer></script>
+  <script src="js/instruments.js" defer></script>
+  <script src="js/audio.js" defer></script>
+  <script src="js/staff.js" defer></script>
+  <script src="js/settings.js" defer></script>
+  <script src="js/quiz.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body class="quiz-page">
+  <header class="topbar">
+    <span class="logo"><span id="logo-icon" class="logo-icon">🎷</span> Notenquiz</span>
+    <div class="topbar-actions">
+      <button id="mute-btn" class="btn btn-ghost btn-small mute-btn" type="button" aria-pressed="false">🔊</button>
+    </div>
+  </header>
+
+  <p id="lib-error" class="lib-error" hidden>
+    De muziek-onderdelen konden niet geladen worden. Controleer de internetverbinding en herlaad de pagina.
+  </p>
+
+  <main>
+    <div id="quiz-start" class="panel center">
+      <div id="start-icon" class="big-emoji">🎷</div>
+      <h1>Notenquiz</h1>
+      <p class="lead">Kijk naar de noot, luister goed en kies de juiste naam!</p>
+      <p class="picker-label">Mijn instrument:</p>
+      <div id="instrument-picker" class="instrument-picker" role="radiogroup" aria-label="Kies je instrument"></div>
+      <button id="quiz-start-btn" class="btn btn-huge btn-go" type="button">▶ Start</button>
+      <button id="quiz-settings" class="btn btn-ghost btn-small settings-btn" type="button">⚙️ Instellingen</button>
+    </div>
+
+    <div id="quiz-play" class="quiz-play" hidden>
+      <div class="quiz-top">
+        <span id="quiz-progress" class="progress-text"></span>
+        <div id="quiz-dots" class="dots" aria-hidden="true"></div>
+        <button id="quiz-stop" class="btn btn-ghost btn-small" type="button" title="Stoppen">✖<span class="stop-label"> Stop</span></button>
+      </div>
+
+      <div id="quiz-staff-card" class="staff-card">
+        <div id="quiz-staff" class="quiz-staff"></div>
+        <button id="quiz-replay" class="btn btn-sound" type="button">🔊 Luister</button>
+        <p id="audio-msg" class="audio-msg" hidden></p>
+      </div>
+
+      <div class="quiz-answer">
+        <div class="feedback-area">
+          <div id="quiz-feedback" class="feedback" aria-live="polite"></div>
+          <button id="quiz-next" class="btn btn-big btn-go" type="button" hidden>Volgende ➜</button>
+        </div>
+
+        <div id="answer-buttons" class="answer-buttons"></div>
+
+        <form id="answer-form" class="answer-form" autocomplete="off">
+          <label for="answer-input" class="sr-only">Typ de naam van de noot</label>
+          <input id="answer-input" type="text" placeholder="of typ hier…" autocapitalize="none" autocorrect="off" spellcheck="false" maxlength="6" enterkeyhint="done">
+          <button type="submit" class="btn btn-primary">OK</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="quiz-end" class="panel center" hidden>
+      <h1>Klaar!</h1>
+      <div id="result-stars" class="result-stars"></div>
+      <p id="result-score" class="result-score"></p>
+      <p id="result-message" class="lead"></p>
+      <div id="result-mistakes-wrap" class="mistakes-wrap" hidden>
+        <h2>Deze noten mag je nog oefenen:</h2>
+        <p class="small">Tik op een noot om hem te horen.</p>
+        <div id="result-mistakes" class="mistakes"></div>
+      </div>
+      <div class="end-actions">
+        <button id="quiz-again" class="btn btn-huge btn-go" type="button">🔁 Nog een keer</button>
+      </div>
+    </div>
+  </main>
+
+  <dialog id="settings-dialog" class="dialog">
+    <form id="settings-form">
+      <h2 id="settings-title">Instellingen</h2>
+      <div class="field-row">
+        <label class="field">Laagste noot <select name="low"></select></label>
+        <label class="field">Hoogste noot <select name="high"></select></label>
+      </div>
+      <label class="switch"><input type="checkbox" name="sharps"><span>Kruizen ♯ (cis, dis, fis, gis, ais)</span></label>
+      <label class="switch"><input type="checkbox" name="flats"><span>Mollen ♭ (des, es, ges, as, bes)</span></label>
+      <label class="field">Aantal vragen <input name="count" type="number" inputmode="numeric" min="1" max="100"></label>
+      <label class="switch"><input type="checkbox" name="autoplay"><span>Noot automatisch laten horen</span></label>
+      <p id="pool-info" class="small pool-info"></p>
+      <div class="share">
+        <button id="copy-link" type="button" class="btn btn-secondary btn-small">🔗 Kopieer link met deze instellingen</button>
+        <span id="copy-status" class="small"></span>
+      </div>
+      <div class="dialog-actions">
+        <button id="settings-reset" type="button" class="btn btn-ghost">Standaard</button>
+        <button type="button" class="btn btn-ghost" data-close>Annuleren</button>
+        <button type="submit" class="btn btn-primary">Opslaan</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

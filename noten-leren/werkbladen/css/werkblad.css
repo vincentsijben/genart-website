@@ -1,0 +1,77 @@
+/* Worksheets page. Base styles come from ../css/style.css. */
+
+.werkblad-page main { max-width: 1400px; padding-top: 16px; }
+
+/* ---------- Worksheets ---------- */
+.field-label { font-weight: 800; margin: 10px 0 6px; }
+.ws-headfield { display: flex; align-items: center; gap: 10px; }
+.ws-headfield .switch { flex: none; width: 120px; margin: 6px 0; }
+.ws-headfield input:not([type="checkbox"]) {
+  flex: 1; min-width: 0; font: inherit; font-size: 1rem; font-weight: 600; padding: 7px 10px;
+  border: 2px solid #d9d2ff; border-radius: 12px; background: #fff; color: var(--ink);
+}
+.ws-headfield input:disabled { opacity: 0.45; }
+.ws-instruments { justify-content: flex-start; gap: 8px; margin-bottom: 4px; }
+.ws-instruments .inst-btn { width: auto; flex: 1; padding: 6px 4px; font-size: 0.95rem; }
+.ws-instruments .inst-btn .inst-icon { font-size: 1.8rem; }
+.field textarea {
+  font: inherit; font-size: 1rem; font-weight: 600; padding: 9px 12px; border: 2px solid #d9d2ff;
+  border-radius: 12px; background: #fff; color: var(--ink); resize: vertical; min-height: 70px;
+}
+.ws-layout { display: grid; grid-template-columns: 360px 1fr; gap: 24px; align-items: start; }
+.ws-form { position: sticky; top: 12px; }
+.field-row.three .field { min-width: 0; }
+.ws-actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0 10px; }
+.ws-summary { margin-top: 12px; }
+.ws-preview { display: flex; flex-direction: column; gap: 24px; align-items: center; min-width: 0; }
+.ws-empty { font-size: 1.2rem; }
+
+.sheet {
+  width: 210mm; max-width: 100%; aspect-ratio: 210 / 297; overflow: hidden;
+  background: #fff; color: #111; padding: 14mm 14mm 10mm;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+  display: flex; flex-direction: column;
+  font-family: 'Nunito', 'Trebuchet MS', sans-serif;
+}
+.sheet-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; border-bottom: 2px solid #111; padding-bottom: 6px; }
+.sheet-head h2 { margin: 0; font-size: 22pt; line-height: 1.1; }
+.sheet-title { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.sheet-icon { font-size: 30pt; line-height: 1; flex: none; }
+.sheet-icon .inst-svg { width: 1em; height: 1em; vertical-align: middle; }
+.sheet-inst { font-size: 11pt; color: #555; }
+.sheet-intro { font-size: 12.5pt; line-height: 1.4; margin: 4mm 0 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.sheet-fields { display: flex; flex-direction: column; gap: 8px; font-size: 13pt; }
+.sheet-fields span { display: flex; gap: 6px; align-items: flex-end; }
+.sheet-fields i { display: inline-block; width: 52mm; border-bottom: 1.5px solid #111; min-height: 1em; font-style: normal; }
+.sheet-fields i.filled { border-bottom-color: transparent; font-weight: 800; }
+.sheet-instr { font-size: 14pt; margin: 4mm 0 2mm; }
+.systems { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: space-evenly; align-items: center; }
+.system { width: 100%; break-inside: avoid; }
+.system svg path { fill: #111; }
+.student .abcjs-lyric { fill: transparent; }
+.write-line { stroke: #555; stroke-width: 1.2; }
+.answer-key .abcjs-lyric { fill: #c0392b; font-weight: 700; }
+.sheet-foot { display: flex; justify-content: space-between; gap: 12px; font-size: 10.5pt; color: #444; border-top: 1px solid #bbb; padding-top: 3mm; margin-top: 3mm; }
+
+@media (max-width: 900px) {
+  .ws-layout { grid-template-columns: 1fr; }
+  .ws-form { position: static; }
+}
+@media (max-width: 560px) {
+  .field-row.three { flex-direction: row; gap: 8px; }
+}
+
+/* ---------- Print (worksheets) ---------- */
+@page { size: A4 portrait; margin: 0; }
+@media print {
+  body { background: #fff; }
+  .no-print, .lib-error, dialog { display: none !important; }
+  main, .werkblad-page main { max-width: none; padding: 0; margin: 0; }
+  .ws-layout { display: block; }
+  .ws-preview { display: block; gap: 0; }
+  .sheet {
+    width: 210mm; height: 297mm; aspect-ratio: auto; max-width: none; box-shadow: none; margin: 0;
+    break-after: page; page-break-after: always; overflow: hidden;
+  }
+  .sheet:last-child { break-after: auto; page-break-after: auto; }
+}
