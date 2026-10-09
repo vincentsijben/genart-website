@@ -44,11 +44,31 @@ const Settings = (() => {
     try { localStorage.setItem(KEY, JSON.stringify(all)); } catch { /* private mode */ }
   }
 
-  const PARAMS = ['instrument', 'laag', 'hoog', 'kruizen', 'mollen', 'aantal', 'geluid'];
+  const PARAMS = ['instrument', 'laag', 'hoog', 'kruizen', 'mollen', 'aantal', 'geluid', 'bericht'];
+
+  // Personal message from the teacher (same for every instrument).
+  const MESSAGE_KEY = 'saxnoten.message';
+  const MESSAGE_MAX = 200;
+  let message = '';
+  try { message = (localStorage.getItem(MESSAGE_KEY) || '').slice(0, MESSAGE_MAX); } catch { /* private mode */ }
+
+  function setMessage(text) {
+    message = String(text || '').trim().slice(0, MESSAGE_MAX);
+    try { localStorage.setItem(MESSAGE_KEY, message); } catch { /* private mode */ }
+    renderMessage();
+  }
+
+  function renderMessage() {
+    const box = document.getElementById('personal-message');
+    if (!box) return;
+    box.textContent = message;
+    box.hidden = !message;
+  }
 
   /** Apply settings from a shared link like ?instrument=klarinet&laag=E4&hoog=C6&kruizen=1&aantal=10 */
   function applyParams(params) {
     if (params.has('instrument')) Instruments.set(params.get('instrument'));
+    if (params.has('bericht')) setMessage(params.get('bericht'));
     const map = { laag: 'low', hoog: 'high', kruizen: 'sharps', mollen: 'flats', aantal: 'count', geluid: 'autoplay' };
     const patch = {};
     for (const [nl, key] of Object.entries(map)) {
@@ -65,6 +85,8 @@ const Settings = (() => {
       laag: s.low, hoog: s.high, kruizen: s.sharps ? 1 : 0, mollen: s.flats ? 1 : 0,
       aantal: s.count, geluid: s.autoplay ? 1 : 0,
     });
+    const msg = form.elements.message.value.trim().slice(0, MESSAGE_MAX);
+    if (msg) q.set('bericht', msg);
     return location.href.split(/[?#]/)[0] + '?' + q.toString();
   }
 
@@ -100,12 +122,14 @@ const Settings = (() => {
     document.getElementById('settings-title').textContent = 'Instellingen – ' + Instruments.get().name;
     document.getElementById('copy-status').textContent = '';
     writeForm(get());
+    form.elements.message.value = message;
     dialog.showModal();
   }
 
   function init() {
     dialog = document.getElementById('settings-dialog');
     form = document.getElementById('settings-form');
+    renderMessage();
 
     dialog.querySelectorAll('[data-close]').forEach((b) => b.addEventListener('click', () => dialog.close()));
 
@@ -120,6 +144,7 @@ const Settings = (() => {
         return;
       }
       set(s);
+      setMessage(form.elements.message.value);
       dialog.close();
       if (onSaved) onSaved();
     });
@@ -138,5 +163,5 @@ const Settings = (() => {
     });
   }
 
-  return { PARAMS, init, get, set, applyParams, open };
+  return { PARAMS, init, get, set, applyParams, open, setMessage };
 })();

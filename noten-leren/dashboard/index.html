@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#7b61ff">
+  <title>Dashboard – student progress</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+  <!-- Base styles and note/instrument code are shared with the quiz in the root folder. -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <script src="../js/notes.js" defer></script>
+  <script src="../js/instruments.js" defer></script>
+  <script src="../js/firebase-config.js" defer></script>
+  <script src="js/app.js" type="module"></script>
+</head>
+<body class="db-page">
+  <header class="topbar">
+    <span class="logo">📊 Dashboard</span>
+    <div class="topbar-actions">
+      <span id="db-user" class="small"></span>
+      <button id="db-signout" class="btn btn-ghost btn-small" type="button" hidden>Sign out</button>
+    </div>
+  </header>
+
+  <main>
+    <p id="db-emulator" class="db-banner" hidden>⚠️ Using the local Firebase emulators (development mode).</p>
+
+    <!-- Not configured -->
+    <section id="view-setup" class="panel" hidden>
+      <h1>Not connected yet</h1>
+      <p>The Firebase project hasn't been configured. Follow <code>docs/firebase-setup.md</code> and fill in
+        <code>js/firebase-config.js</code>.</p>
+    </section>
+
+    <!-- Loading -->
+    <section id="view-loading" class="panel center"><p>Loading…</p></section>
+
+    <!-- Sign in -->
+    <section id="view-signin" class="panel db-signin" hidden>
+      <h1>Sign in</h1>
+      <p class="small">For teachers only. Students use their personal link and don't need an account.</p>
+      <button id="db-google" class="btn btn-primary" type="button">Sign in with Google</button>
+      <div class="db-or"><span>or with e-mail</span></div>
+      <form id="db-email-form" autocomplete="on">
+        <label class="field">E-mail <input name="email" type="email" required autocomplete="username"></label>
+        <label class="field">Password <input name="password" type="password" required minlength="8" autocomplete="current-password"></label>
+        <div class="lm-row">
+          <button type="submit" class="btn btn-secondary">Sign in</button>
+          <button type="button" id="db-signup" class="btn btn-ghost">Create account</button>
+          <button type="button" id="db-reset" class="btn btn-ghost btn-small">Forgot password?</button>
+        </div>
+      </form>
+      <p id="db-signin-msg" class="db-msg" hidden></p>
+    </section>
+
+    <!-- Signed in but not allowed (yet) -->
+    <section id="view-denied" class="panel" hidden>
+      <h1>No access yet</h1>
+      <p id="db-denied-text"></p>
+      <div class="lm-row">
+        <button id="db-verify" class="btn btn-secondary" type="button" hidden>Send verification e-mail</button>
+        <button id="db-retry" class="btn btn-ghost" type="button">Try again</button>
+      </div>
+      <p id="db-denied-msg" class="db-msg" hidden></p>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="view-main" class="db-layout" hidden>
+      <aside class="panel db-side">
+        <h2>Students</h2>
+        <ul id="db-students" class="db-students"></ul>
+        <p id="db-no-students" class="small" hidden>No students yet. Add your first student below.</p>
+        <form id="db-add" class="db-add">
+          <h3>Add a student</h3>
+          <label class="field">First name or nickname <input name="name" required maxlength="40" autocomplete="off"></label>
+          <label class="field">Instrument <select name="instrument"></select></label>
+          <button type="submit" class="btn btn-go btn-small">＋ Add</button>
+        </form>
+        <details class="db-privacy">
+          <summary>Privacy &amp; clean-up</summary>
+          <p class="small">Store only a first name or nickname. Results stay in the EU database until you delete them.</p>
+          <button id="db-cleanup" class="btn btn-ghost btn-small" type="button">Delete results older than 12 months</button>
+          <p id="db-cleanup-msg" class="small" hidden></p>
+        </details>
+      </aside>
+
+      <div class="db-detail">
+        <section id="db-empty" class="panel center"><p>Select a student on the left, or add one.</p></section>
+
+        <section id="db-student" hidden>
+          <div class="panel">
+            <div class="db-student-head">
+              <span id="db-s-icon" class="db-s-icon"></span>
+              <h1 id="db-s-name"></h1>
+            </div>
+            <div class="db-link">
+              <label class="field">Personal link for this student
+                <input id="db-s-link" type="text" readonly>
+              </label>
+              <div class="lm-row">
+                <button id="db-copy" class="btn btn-secondary btn-small" type="button">🔗 Copy link</button>
+                <a id="db-open" class="btn btn-ghost btn-small" target="_blank" rel="noopener">Open quiz</a>
+                <span id="db-copy-msg" class="small"></span>
+              </div>
+              <p class="small">Send this link to the student (or their parents). The quiz then uses the assignment below
+                and sends every result here. Keep the link private: anyone with it can practise as this student.</p>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h2>Progress</h2>
+            <div id="db-stats" class="db-stats"></div>
+            <div id="db-chart" class="db-chart"></div>
+            <h3>Most missed notes</h3>
+            <div id="db-mistakes"></div>
+            <h3>Recent sessions</h3>
+            <div class="db-table-wrap"><table id="db-results" class="db-table"></table></div>
+            <p id="db-no-results" class="small" hidden>No results yet. They appear here as soon as the student finishes a quiz.</p>
+          </div>
+
+          <form id="db-assignment" class="panel">
+            <h2>Student &amp; assignment</h2>
+            <div class="field-row">
+              <label class="field">Name <input name="name" required maxlength="40"></label>
+              <label class="field">Instrument <select name="instrument"></select></label>
+            </div>
+            <div class="field-row">
+              <label class="field">Lowest note <select name="low"></select></label>
+              <label class="field">Highest note <select name="high"></select></label>
+            </div>
+            <label class="switch"><input type="checkbox" name="sharps"><span>Sharps ♯ (cis, dis, fis, gis, ais)</span></label>
+            <label class="switch"><input type="checkbox" name="flats"><span>Flats ♭ (des, es, ges, as, bes)</span></label>
+            <div class="field-row">
+              <label class="field">Number of questions <input name="count" type="number" min="1" max="100" required></label>
+              <label class="switch db-autoplay"><input type="checkbox" name="autoplay"><span>Play the note automatically</span></label>
+            </div>
+            <label class="field">Personal message <span class="small">(Dutch, shown on the student's start screen)</span>
+              <textarea name="message" rows="2" maxlength="200" placeholder="Hey Penelope, kun je deze 20 vragen proberen goed te beantwoorden?"></textarea>
+            </label>
+            <p id="db-pool" class="small pool-info"></p>
+            <div class="lm-row">
+              <button type="submit" class="btn btn-primary">Save</button>
+              <span id="db-save-msg" class="small"></span>
+            </div>
+            <p class="small">Changes reach the student the next time they open the quiz (it replaces their own settings once).</p>
+          </form>
+
+          <div class="panel db-danger">
+            <h2>Delete</h2>
+            <div class="lm-row">
+              <button id="db-del-results" class="btn btn-ghost btn-small" type="button">Delete all results</button>
+              <button id="db-del-student" class="btn btn-ghost btn-small db-del" type="button">Delete student (incl. results)</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

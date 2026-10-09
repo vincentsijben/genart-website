@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#7b61ff">
+  <title>Songs – sheets for alto sax, clarinet and trumpet</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎼</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+  <!-- Base styles and shared code come from the quiz in the root folder. -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="css/songs.css">
+  <script src="https://cdn.jsdelivr.net/npm/abcjs@6.7.1/dist/abcjs-basic-min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/tone@15.1.22/build/Tone.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tonejs/midi@2.0.28/build/Midi.js" defer></script>
+  <script src="../js/notes.js" defer></script>
+  <script src="../js/instruments.js" defer></script>
+  <script src="../js/audio.js" defer></script>
+  <script src="../js/staff.js" defer></script>
+  <script src="js/song.js" defer></script>
+  <script src="js/importers.js" defer></script>
+  <script src="js/arrange.js" defer></script>
+  <script src="js/abcwriter.js" defer></script>
+  <script src="js/player.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body class="lm-page">
+  <p id="lib-error" class="lib-error no-print" hidden>
+    The music libraries could not be loaded. Check your internet connection and reload the page.
+  </p>
+
+  <main>
+    <div class="lm-layout">
+      <form id="lm-form" class="panel lm-form no-print" autocomplete="off">
+        <h1>🎼 Songs</h1>
+        <p class="small">Turn a song into a sheet for your student: choose the bars, instrument and key,
+          listen to it and print it. Your settings are remembered.</p>
+
+        <section class="lm-step">
+          <h2><span class="lm-num">1</span> Enter music</h2>
+          <p class="small">In <strong>concert pitch</strong> (sounding pitch).</p>
+          <div class="lm-tabs" role="tablist">
+            <button type="button" class="lm-tab selected" role="tab" aria-selected="true" data-tab="abc">Paste ABC</button>
+            <button type="button" class="lm-tab" role="tab" aria-selected="false" data-tab="file">Upload a file</button>
+          </div>
+          <div class="lm-tabpanel" data-panel="abc">
+            <textarea name="abc" rows="8" spellcheck="false" aria-label="ABC notation"
+              placeholder="X:1&#10;T:Title&#10;M:4/4&#10;L:1/4&#10;K:C&#10;C D E F | G2 G2 |]"></textarea>
+            <div class="lm-row">
+              <button type="button" id="lm-load-abc" class="btn btn-secondary btn-small">✔ Use this ABC</button>
+              <button type="button" id="lm-example" class="btn btn-ghost btn-small">Example: Vader Jacob</button>
+            </div>
+          </div>
+          <div class="lm-tabpanel" data-panel="file" hidden>
+            <label class="lm-file">
+              <input type="file" id="lm-file" accept=".mid,.midi,.musicxml,.xml,.mxl,.abc">
+              <span class="btn btn-secondary btn-small">📂 Choose a file</span>
+              <span id="lm-file-name" class="small">MIDI (.mid), MusicXML (.musicxml, .xml, .mxl) or ABC (.abc)</span>
+            </label>
+          </div>
+          <p id="lm-error" class="lm-error" role="alert" hidden></p>
+          <label class="field" id="lm-part-field" hidden>Part / track with the melody
+            <select name="part"></select>
+          </label>
+          <p id="lm-song-info" class="lm-info" hidden></p>
+          <details class="lm-tip">
+            <summary>Photo, PDF, YouTube or audio file?</summary>
+            <p>This page can't convert those itself. Use the local helper in the <code>convert/</code> folder:</p>
+            <ul>
+              <li><strong>Screenshot or photo of sheet music, or a PDF:</strong> copy the screenshot to the clipboard
+                (Cmd+Ctrl+Shift+4) and double-click <em>Paste and convert.command</em> → MusicXML.</li>
+              <li><strong>Audio or YouTube:</strong> copy the link or put the file in <code>convert/inbox/</code> and
+                double-click <em>Convert.command</em> → MIDI.</li>
+            </ul>
+            <p>Upload the result here. Always check it by listening: automatic recognition isn't flawless.</p>
+          </details>
+        </section>
+
+        <fieldset id="lm-arrange" class="lm-arrange" disabled>
+          <section class="lm-step">
+            <h2><span class="lm-num">2</span> Choose bars</h2>
+            <div class="field-row">
+              <label class="field">From bar <select name="from"></select></label>
+              <label class="field">To bar (incl.) <select name="to"></select></label>
+            </div>
+          </section>
+
+          <section class="lm-step">
+            <h2><span class="lm-num">3</span> Instrument and key</h2>
+            <div id="lm-instruments" class="instrument-picker lm-instruments" role="radiogroup" aria-label="Instrument"></div>
+            <div class="field-row">
+              <label class="field">Lowest note <select name="low"></select></label>
+              <label class="field">Highest note <select name="high"></select></label>
+            </div>
+            <label class="field">Key (as the student reads it)
+              <select name="key"></select>
+            </label>
+            <div class="lm-octave">
+              <span>Octave</span>
+              <button type="button" id="lm-oct-down" class="btn btn-ghost btn-small">▼ Lower</button>
+              <strong id="lm-oct-label">0</strong>
+              <button type="button" id="lm-oct-up" class="btn btn-ghost btn-small">▲ Higher</button>
+            </div>
+            <p id="lm-fit" class="lm-fit"></p>
+          </section>
+
+          <section class="lm-step">
+            <h2><span class="lm-num">4</span> Layout</h2>
+            <label class="switch"><input type="checkbox" name="simplify"><span>Simplify rhythm (quarter and eighth notes)</span></label>
+            <label class="switch"><input type="checkbox" name="names"><span>Dutch note names under the notes</span></label>
+            <div class="field-row">
+              <label class="field">Bars per line <input name="barsPerLine" type="number" min="1" max="8" inputmode="numeric"></label>
+              <label class="field">Note size
+                <select name="size">
+                  <option value="large">Large</option>
+                  <option value="medium">Medium</option>
+                  <option value="small">Small</option>
+                </select>
+              </label>
+            </div>
+            <label class="field">Title <input name="title" type="text" maxlength="80"></label>
+            <div class="ws-headfield">
+              <label class="switch"><input type="checkbox" name="showName"><span>Name field</span></label>
+              <input name="studentName" type="text" maxlength="60" aria-label="Student name" placeholder="empty = student fills it in">
+            </div>
+          </section>
+
+          <section class="lm-step">
+            <h2><span class="lm-num">5</span> Listen and print</h2>
+            <label class="field">Tempo: <span id="lm-tempo-label"></span>
+              <input name="tempo" type="range" min="40" max="200" step="2">
+            </label>
+            <div class="lm-row">
+              <button type="button" id="lm-play" class="btn btn-secondary">▶ Play</button>
+              <button type="button" id="lm-stop" class="btn btn-ghost" disabled>■ Stop</button>
+              <button type="button" id="lm-print" class="btn btn-go">🖨️ Print / PDF</button>
+            </div>
+            <p id="lm-audio-msg" class="lm-error" hidden></p>
+          </section>
+        </fieldset>
+      </form>
+
+      <div class="lm-preview">
+        <section id="lm-sheet" class="lm-sheet">
+          <header class="lm-head">
+            <div class="sheet-title">
+              <span id="lm-icon" class="sheet-icon"></span>
+              <div>
+                <h2 id="lm-title"></h2>
+                <div id="lm-subtitle" class="sheet-inst"></div>
+              </div>
+            </div>
+            <div id="lm-fields" class="sheet-fields"></div>
+          </header>
+          <div id="lm-music" class="lm-music"></div>
+          <p id="lm-empty" class="lm-empty no-print">Enter music on the left (or load the example) to get started. 🎶</p>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

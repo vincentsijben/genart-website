@@ -22,12 +22,14 @@
   <script src="js/staff.js" defer></script>
   <script src="js/settings.js" defer></script>
   <script src="js/quiz.js" defer></script>
+  <script src="js/firebase-config.js" defer></script>
   <script src="js/app.js" defer></script>
 </head>
 <body class="quiz-page">
   <header class="topbar">
     <span class="logo"><span id="logo-icon" class="logo-icon">🎷</span> Notenquiz</span>
     <div class="topbar-actions">
+      <span id="student-badge" class="student-badge" hidden></span>
       <button id="mute-btn" class="btn btn-ghost btn-small mute-btn" type="button" aria-pressed="false">🔊</button>
     </div>
   </header>
@@ -40,11 +42,13 @@
     <div id="quiz-start" class="panel center">
       <div id="start-icon" class="big-emoji">🎷</div>
       <h1>Notenquiz</h1>
+      <p id="personal-message" class="personal-message" hidden></p>
       <p class="lead">Kijk naar de noot, luister goed en kies de juiste naam!</p>
       <p class="picker-label">Mijn instrument:</p>
       <div id="instrument-picker" class="instrument-picker" role="radiogroup" aria-label="Kies je instrument"></div>
       <button id="quiz-start-btn" class="btn btn-huge btn-go" type="button">▶ Start</button>
-      <button id="quiz-settings" class="btn btn-ghost btn-small settings-btn" type="button">⚙️ Instellingen</button>
+      <p id="student-note" class="student-note" hidden>Je resultaten worden gedeeld met je leraar.</p>
+      <button id="quiz-settings" class="settings-btn" type="button">⚙️ Instellingen</button>
     </div>
 
     <div id="quiz-play" class="quiz-play" hidden>
@@ -81,6 +85,7 @@
       <div id="result-stars" class="result-stars"></div>
       <p id="result-score" class="result-score"></p>
       <p id="result-message" class="lead"></p>
+      <p id="result-shared" class="result-shared" hidden></p>
       <div id="result-mistakes-wrap" class="mistakes-wrap" hidden>
         <h2>Deze noten mag je nog oefenen:</h2>
         <p class="small">Tik op een noot om hem te horen.</p>
@@ -104,6 +109,9 @@
       <label class="field">Aantal vragen <input name="count" type="number" inputmode="numeric" min="1" max="100"></label>
       <label class="switch"><input type="checkbox" name="autoplay"><span>Noot automatisch laten horen</span></label>
       <p id="pool-info" class="small pool-info"></p>
+      <label class="field">Persoonlijke boodschap <span class="small">(optioneel, staat op het startscherm)</span>
+        <textarea name="message" rows="2" maxlength="200" placeholder="Hey Penelope, kun je deze 20 vragen proberen goed te beantwoorden?"></textarea>
+      </label>
       <div class="share">
         <button id="copy-link" type="button" class="btn btn-secondary btn-small">🔗 Kopieer link met deze instellingen</button>
         <span id="copy-status" class="small"></span>

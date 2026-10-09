@@ -115,7 +115,7 @@ const Quiz = (() => {
       alert('Er zijn geen noten in het gekozen bereik. Pas de instellingen aan.');
       return;
     }
-    state = { settings: s, questions: Notes.sequence(pool, s.count), i: 0, results: [], answered: false };
+    state = { settings: s, questions: Notes.sequence(pool, s.count), i: 0, results: [], answered: false, startedAt: Date.now() };
     buildButtons(s);
     showPanel('play');
     window.scrollTo(0, 0);
@@ -206,6 +206,20 @@ const Quiz = (() => {
     showPanel('end');
     window.scrollTo(0, 0);
     if (stars === 3) confetti();
+    // For the teacher dashboard (js/app.js sends it when the quiz was opened with a personal link).
+    document.dispatchEvent(new CustomEvent('quiz-finished', {
+      detail: {
+        instrument: Instruments.get().id,
+        low: state.settings.low,
+        high: state.settings.high,
+        sharps: state.settings.sharps,
+        flats: state.settings.flats,
+        count: total,
+        correct: good,
+        durationSec: Math.round((Date.now() - state.startedAt) / 100) / 10,
+        mistakes: state.results.filter((r) => !r.correct).map((r) => ({ note: Notes.id(r.note), given: r.given })),
+      },
+    }));
     state = null;
   }
 

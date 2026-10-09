@@ -118,7 +118,22 @@ button, a, input, select, label { touch-action: manipulation; }
 .inst-btn .inst-icon { font-size: 2.6rem; line-height: 1; }
 .inst-btn.selected { background: #fff4d6; border-color: var(--sun); box-shadow: 0 4px 0 #e59a00; }
 .inst-btn.selected .inst-name::after { content: ' ✔'; color: var(--go); }
-.settings-btn { display: block; margin: 28px auto 0; }
+.settings-btn {
+  display: block; margin: 22px auto 0; padding: 4px 10px; border: 0; background: none; cursor: pointer;
+  font: inherit; font-size: 0.8rem; font-weight: 700; color: var(--muted); opacity: 0.75; border-radius: 999px;
+}
+.settings-btn:hover, .settings-btn:focus-visible { opacity: 1; background: #f1eeff; }
+.settings-btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
+
+.personal-message {
+  position: relative; max-width: 520px; margin: 4px auto 14px; padding: 12px 18px;
+  background: #fff4d6; border: 3px solid #ffd77a; border-radius: 18px;
+  font-size: 1.2rem; font-weight: 800; white-space: pre-line; overflow-wrap: anywhere;
+}
+.personal-message::before { content: '💬 '; }
+.student-badge { font-weight: 800; background: #e7f8ef; color: #106b3f; border-radius: 999px; padding: 6px 12px; white-space: nowrap; max-width: 40vw; overflow: hidden; text-overflow: ellipsis; }
+.student-note { font-size: 0.85rem; color: var(--muted); margin: 14px 0 0; }
+.result-shared { font-size: 0.95rem; color: var(--muted); margin: 4px 0 0; }
 
 .quiz-top { grid-area: top; display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
 .progress-text { font-weight: 900; font-size: 1.2rem; white-space: nowrap; }
@@ -198,9 +213,10 @@ button, a, input, select, label { touch-action: manipulation; }
 
 /* ---------- Forms / dialog ---------- */
 .field { display: flex; flex-direction: column; gap: 4px; margin: 10px 0; font-weight: 800; flex: 1; min-width: 0; }
-.field input, .field select {
+.field input, .field select, .field textarea {
   font: inherit; font-size: 1rem; font-weight: 600; padding: 9px 12px; border: 2px solid #d9d2ff; border-radius: 12px; background: #fff; color: var(--ink);
 }
+.field textarea { resize: vertical; }
 .field-row { display: flex; gap: 12px; }
 .switch { display: flex; align-items: center; gap: 10px; margin: 10px 0; cursor: pointer; min-height: 32px; }
 .switch input { width: 24px; height: 24px; accent-color: var(--primary); flex: none; }
@@ -306,6 +322,7 @@ button, a, input, select, label { touch-action: manipulation; }
   .instrument-picker { margin-bottom: 10px; }
   .inst-btn { flex-direction: row; width: auto; padding: 6px 14px; }
   .inst-btn .inst-icon { font-size: 1.6rem; }
-  .settings-btn { margin-top: 14px; }
+  .settings-btn { margin-top: 10px; }
+  .personal-message { font-size: 1rem; padding: 8px 12px; margin-bottom: 8px; }
   .result-stars { font-size: 3rem; }
 }

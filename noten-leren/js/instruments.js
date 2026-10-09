@@ -21,17 +21,17 @@ const Instruments = (() => {
 
   const LIST = [
     {
-      id: 'altsax', name: 'Altsaxofoon', short: 'Altsax', icon: '🎷',
+      id: 'altsax', name: 'Altsaxofoon', short: 'Altsax', nameEn: 'Alto saxophone', shortEn: 'Alto sax', icon: '🎷',
       soundfont: 'alto_sax', transpose: -9, transposeSteps: -5, // Eb instrument: sounds a major sixth lower
       lowest: 'Bb3', highest: 'F6', defaultLow: 'D4', defaultHigh: 'C6',
     },
     {
-      id: 'klarinet', name: 'Klarinet', short: 'Klarinet', icon: CLARINET_SVG,
+      id: 'klarinet', name: 'Klarinet', short: 'Klarinet', nameEn: 'Clarinet', shortEn: 'Clarinet', icon: CLARINET_SVG,
       soundfont: 'clarinet', transpose: -2, transposeSteps: -1, // Bb instrument: sounds a major second lower
       lowest: 'E3', highest: 'C7', defaultLow: 'E4', defaultHigh: 'C6',
     },
     {
-      id: 'trompet', name: 'Trompet', short: 'Trompet', icon: '🎺',
+      id: 'trompet', name: 'Trompet', short: 'Trompet', nameEn: 'Trumpet', shortEn: 'Trumpet', icon: '🎺',
       soundfont: 'trumpet', transpose: -2, transposeSteps: -1, // Bb instrument: sounds a major second lower
       lowest: 'F#3', highest: 'C6', defaultLow: 'C4', defaultHigh: 'G5',
     },

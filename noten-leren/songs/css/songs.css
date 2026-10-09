@@ -1,0 +1,100 @@
+/* Songs page. Base styles come from ../css/style.css. */
+
+.lm-page main { max-width: 1400px; padding-top: 16px; }
+.lm-layout { display: grid; grid-template-columns: 400px 1fr; gap: 24px; align-items: start; }
+.lm-form { position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow: auto; overscroll-behavior: contain; }
+.lm-form h1 { margin-top: 0; }
+.lm-arrange { border: 0; padding: 0; margin: 0; min-width: 0; }
+.lm-arrange:disabled { opacity: 0.45; }
+
+.lm-step { border-top: 2px solid #eee9ff; padding-top: 10px; margin-top: 14px; }
+.lm-step h2 { font-size: 1.15rem; margin: 0 0 6px; display: flex; align-items: center; gap: 8px; }
+.lm-num {
+  display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%;
+  background: var(--primary); color: #fff; font-size: 0.95rem;
+}
+.lm-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+
+.lm-tabs { display: flex; gap: 6px; margin: 6px 0 8px; }
+.lm-tab {
+  font: inherit; font-weight: 800; border: 2px solid #e3def5; background: #f5f2ff; color: var(--ink);
+  border-radius: 999px; padding: 6px 14px; cursor: pointer;
+}
+.lm-tab.selected { background: var(--primary); border-color: var(--primary); color: #fff; }
+.lm-tabpanel textarea {
+  width: 100%; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9rem; padding: 10px;
+  border: 2px solid #d9d2ff; border-radius: 12px; resize: vertical; color: var(--ink);
+}
+.lm-file { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; cursor: pointer; }
+.lm-file input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.lm-file input:focus-visible + .btn { outline: 4px solid var(--sun); outline-offset: 3px; }
+
+.lm-error { color: #c62828; background: #ffecec; border-radius: 10px; padding: 8px 12px; margin: 8px 0; }
+.lm-info { background: #f5f2ff; border-radius: 12px; padding: 8px 12px; margin: 8px 0; }
+.lm-tip { margin-top: 8px; font-size: 0.95rem; }
+.lm-tip summary { cursor: pointer; font-weight: 800; color: var(--primary); }
+.lm-tip ul { padding-left: 20px; margin: 6px 0; }
+
+.lm-instruments { justify-content: flex-start; gap: 8px; margin-bottom: 4px; }
+.lm-instruments .inst-btn { width: auto; flex: 1; padding: 6px 4px; font-size: 0.95rem; }
+.lm-instruments .inst-btn .inst-icon { font-size: 1.8rem; }
+.lm-instruments .inst-btn:disabled { cursor: default; }
+
+.lm-octave { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+.lm-octave strong { min-width: 2.2em; text-align: center; }
+.lm-fit { border-radius: 12px; padding: 8px 12px; margin: 8px 0; font-size: 0.95rem; }
+.lm-fit.ok { background: #e7f8ef; color: #106b3f; }
+.lm-fit.bad { background: #ffecec; color: #b3261e; }
+
+.ws-headfield { display: flex; align-items: center; gap: 10px; }
+.ws-headfield .switch { flex: none; width: 120px; margin: 6px 0; }
+.ws-headfield input:not([type="checkbox"]) {
+  flex: 1; min-width: 0; font: inherit; font-size: 1rem; font-weight: 600; padding: 7px 10px;
+  border: 2px solid #d9d2ff; border-radius: 12px; background: #fff; color: var(--ink);
+}
+.ws-headfield input:disabled { opacity: 0.45; }
+input[type="range"] { width: 100%; accent-color: var(--primary); }
+
+/* ---------- Sheet preview ---------- */
+.lm-preview { min-width: 0; display: flex; justify-content: center; }
+.lm-sheet {
+  width: 210mm; max-width: 100%; min-height: 297mm; background: #fff; color: #111;
+  padding: 14mm; box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+  font-family: 'Nunito', 'Trebuchet MS', sans-serif;
+}
+.lm-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; border-bottom: 2px solid #111; padding-bottom: 6px; margin-bottom: 6mm; }
+.lm-head:has(#lm-title:empty) { display: none; }
+.lm-head h2 { margin: 0; font-size: 24pt; line-height: 1.1; }
+.sheet-title { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.sheet-icon { font-size: 30pt; line-height: 1; flex: none; }
+.sheet-icon .inst-svg { width: 1em; height: 1em; vertical-align: middle; }
+.sheet-inst { font-size: 11pt; color: #555; }
+.sheet-fields { display: flex; flex-direction: column; gap: 8px; font-size: 13pt; }
+.sheet-fields span { display: flex; gap: 6px; align-items: flex-end; }
+.sheet-fields i { display: inline-block; width: 55mm; border-bottom: 1.5px solid #111; min-height: 1em; font-style: normal; }
+.sheet-fields i.filled { border-bottom-color: transparent; font-weight: 800; }
+
+/* abcjs sets inline-block + overflow:hidden on the container, which stops page breaks between lines. */
+.lm-music { display: block !important; overflow: visible !important; }
+.lm-music svg path { fill: #111; }
+.lm-music .abcjs-lyric { fill: #333; font-weight: 700; }
+.lm-music .lm-playing path { fill: var(--warn); }
+.lm-music .lm-playing .abcjs-lyric { fill: var(--warn); }
+.lm-music > div { break-inside: avoid; page-break-inside: avoid; margin-bottom: 2mm; }
+.lm-empty { font-size: 1.2rem; color: var(--muted); text-align: center; margin-top: 30mm; }
+
+@media (max-width: 1000px) {
+  .lm-layout { grid-template-columns: 1fr; }
+  .lm-form { position: static; max-height: none; }
+}
+
+/* ---------- Print ---------- */
+@page { size: A4 portrait; margin: 12mm; }
+@media print {
+  body { background: #fff; padding: 0; }
+  .no-print, .lib-error { display: none !important; }
+  .lm-page main { max-width: none; padding: 0; margin: 0; }
+  .lm-layout, .lm-preview { display: block; }
+  .lm-sheet { width: auto; min-height: 0; padding: 0; box-shadow: none; }
+  .lm-music .lm-playing path { fill: #111; }
+}

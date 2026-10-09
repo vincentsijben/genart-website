@@ -1,0 +1,75 @@
+/* Teacher dashboard. Base styles come from ../css/style.css. */
+
+.db-page main { max-width: 1300px; }
+.lm-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
+.panel + .panel, .panel + form.panel, form.panel + .panel { margin-top: 18px; }
+.db-banner { background: #fff4d6; border: 2px solid #ffd77a; border-radius: 12px; padding: 8px 14px; }
+.db-msg { background: #f5f2ff; border-radius: 12px; padding: 8px 12px; }
+.db-msg.error { background: #ffecec; color: #b3261e; }
+
+.db-signin { max-width: 460px; margin: 30px auto; }
+.db-or { display: flex; align-items: center; gap: 10px; color: var(--muted); margin: 18px 0 6px; }
+.db-or::before, .db-or::after { content: ''; flex: 1; border-top: 2px solid #eee9ff; }
+
+.db-layout { display: grid; grid-template-columns: 320px 1fr; gap: 20px; align-items: start; }
+.db-side { position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow: auto; }
+.db-side h2 { margin-top: 0; }
+.db-students { list-style: none; padding: 0; margin: 0 0 10px; display: flex; flex-direction: column; gap: 6px; }
+.db-students button {
+  width: 100%; display: flex; align-items: center; gap: 10px; text-align: left; font: inherit; color: var(--ink);
+  background: #f5f2ff; border: 2px solid transparent; border-radius: 14px; padding: 8px 10px; cursor: pointer;
+}
+.db-students button:hover { border-color: #d9d2ff; }
+.db-students button.selected { background: #fff4d6; border-color: var(--sun); }
+.db-students .inst-svg { width: 1.4em; height: 1.4em; }
+.db-st-icon { font-size: 1.5rem; line-height: 1; flex: none; }
+.db-st-main { flex: 1; min-width: 0; }
+.db-st-name { font-weight: 900; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.db-st-sub { font-size: 0.82rem; color: var(--muted); }
+.db-dot { width: 10px; height: 10px; border-radius: 50%; flex: none; background: #d8d3ea; }
+.db-dot.recent { background: var(--go); }
+.db-dot.week { background: var(--sun); }
+.db-add { border-top: 2px solid #eee9ff; padding-top: 8px; margin-top: 8px; }
+.db-add h3 { margin: 4px 0; font-size: 1rem; }
+.db-privacy { margin-top: 14px; font-size: 0.95rem; }
+.db-privacy summary { cursor: pointer; font-weight: 800; color: var(--primary); }
+
+.db-detail { min-width: 0; }
+.db-student-head { display: flex; align-items: center; gap: 12px; }
+.db-student-head h1 { margin: 0; }
+.db-s-icon { font-size: 2.6rem; line-height: 1; }
+.db-s-icon .inst-svg { width: 1em; height: 1em; }
+.db-link input { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9rem; }
+
+.db-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 12px; }
+.db-stat { background: #f5f2ff; border-radius: 14px; padding: 10px 12px; }
+.db-stat b { display: block; font-size: 1.6rem; font-weight: 900; }
+.db-stat span { font-size: 0.85rem; color: var(--muted); }
+.db-chart svg { width: 100%; height: auto; display: block; }
+.db-chart .bar { fill: #b9acff; }
+.db-chart .bar.good { fill: var(--go); }
+.db-chart .bar.mid { fill: var(--sun); }
+.db-chart .bar.low { fill: var(--warn); }
+.db-chart text { font-size: 10px; fill: var(--muted); font-family: inherit; }
+.db-chart .grid { stroke: #eee9ff; stroke-width: 1; }
+
+.db-table-wrap { overflow-x: auto; }
+.db-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.db-table th, .db-table td { text-align: left; padding: 6px 8px; border-bottom: 1px solid #eee9ff; white-space: nowrap; }
+.db-table th { font-size: 0.82rem; color: var(--muted); }
+.db-pct { font-weight: 900; }
+.db-pct.good { color: #106b3f; }
+.db-pct.mid { color: #9a6400; }
+.db-pct.low { color: #b3261e; }
+.db-miss { display: flex; flex-wrap: wrap; gap: 8px; }
+.db-miss-item { background: #fff7e8; border: 2px solid #ffe2a8; border-radius: 12px; padding: 6px 10px; font-size: 0.95rem; }
+.db-miss-item b { font-size: 1.1rem; }
+
+.db-autoplay { align-self: flex-end; }
+.db-danger h2 { font-size: 1.1rem; }
+.db-del { color: #b3261e; }
+
+@media (max-width: 900px) {
+  .db-layout { grid-template-columns: 1fr; }
+  .db-side { position: static; max-height: none; }
+}

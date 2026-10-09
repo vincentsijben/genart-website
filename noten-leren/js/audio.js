@@ -74,7 +74,7 @@ const Sound = (() => {
     document.dispatchEvent(new CustomEvent('sound-mute', { detail: muted }));
   }
 
-  /** Loaded sampler for an instrument (for scheduling sequences, e.g. the Liedjesmaker player). */
+  /** Loaded sampler for an instrument (for scheduling sequences, e.g. the Songs player). */
   async function getSampler(inst = Instruments.get()) {
     await Tone.start();
     await load(inst);
