@@ -133,6 +133,10 @@ button, a, input, select, label { touch-action: manipulation; }
 .personal-message::before { content: '💬 '; }
 .student-badge { font-weight: 800; background: #e7f8ef; color: #106b3f; border-radius: 999px; padding: 6px 12px; white-space: nowrap; max-width: 40vw; overflow: hidden; text-overflow: ellipsis; }
 .student-note { font-size: 0.85rem; color: var(--muted); margin: 14px 0 0; }
+.code-text { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 1.1rem; letter-spacing: 0.1em; color: var(--ink); }
+.code-form { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: center; margin: 10px 0 0; }
+.code-form input { font: inherit; font-size: 1.3rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; width: 11em; max-width: 100%; padding: 8px 10px; border: 3px solid #d9d2f3; border-radius: 12px; }
+.code-msg { flex-basis: 100%; margin: 0; font-size: 0.9rem; color: var(--muted); }
 .result-shared { font-size: 0.95rem; color: var(--muted); margin: 4px 0 0; }
 
 .quiz-top { grid-area: top; display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }

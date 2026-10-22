@@ -48,6 +48,13 @@
       <div id="instrument-picker" class="instrument-picker" role="radiogroup" aria-label="Kies je instrument"></div>
       <button id="quiz-start-btn" class="btn btn-huge btn-go" type="button">▶ Start</button>
       <p id="student-note" class="student-note" hidden>Je resultaten worden gedeeld met je leraar.</p>
+      <p id="student-code" class="student-note" hidden>Jouw code: <strong id="student-code-text" class="code-text"></strong> – typ die op een ander apparaat in.</p>
+      <button id="code-open" class="settings-btn" type="button" hidden>🔑 Code invoeren</button>
+      <form id="code-form" class="code-form" hidden autocomplete="off">
+        <input id="code-input" type="text" inputmode="text" maxlength="12" autocapitalize="characters" autocorrect="off" spellcheck="false" placeholder="K7MQ-4XPD" aria-label="Code van je leraar">
+        <button class="btn btn-secondary btn-small" type="submit">OK</button>
+        <p id="code-msg" class="code-msg" role="status"></p>
+      </form>
       <button id="quiz-settings" class="settings-btn" type="button">⚙️ Instellingen</button>
     </div>
 

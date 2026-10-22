@@ -73,3 +73,5 @@
   .db-layout { grid-template-columns: 1fr; }
   .db-side { position: static; max-height: none; }
 }
+.db-short { margin: 14px 0 2px; }
+.db-short-code { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 1.4rem; letter-spacing: 0.12em; background: #f3effd; border-radius: 8px; padding: 2px 10px; margin-left: 6px; }

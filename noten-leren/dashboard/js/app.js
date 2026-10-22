@@ -8,7 +8,7 @@ import {
   createUserWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, signOut,
 } from 'https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js';
 import {
-  doc, getDoc, setDoc, updateDoc, deleteDoc, collection, query, where, orderBy, limit, getDocs,
+  doc, getDoc, updateDoc, deleteDoc, collection, query, where, orderBy, limit, getDocs,
   serverTimestamp, writeBatch, Timestamp,
 } from 'https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js';
 
@@ -79,6 +79,32 @@ function randomCode() {
   const alphabet = 'abcdefghijkmnpqrstuvwxyz23456789'; // no look-alikes (l/1, o/0)
   const bytes = crypto.getRandomValues(new Uint8Array(20));
   return [...bytes].map((b) => alphabet[b % alphabet.length]).join('');
+}
+
+// Short code a student types on another device: 8 characters, no look-alikes (I/L/O/0/1), shown as "K7MQ-4XPD".
+const SHORT_ALPHABET = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+
+function randomShortCode() {
+  const bytes = crypto.getRandomValues(new Uint8Array(8));
+  return [...bytes].map((b) => SHORT_ALPHABET[b % SHORT_ALPHABET.length]).join('');
+}
+
+function formatShortCode(c) {
+  return c.slice(0, 4) + '-' + c.slice(4);
+}
+
+/** Stores a new short code for the student (retries on the rare collision). Returns the code. */
+async function createShortCode(code) {
+  for (let attempt = 0; attempt < 5; attempt++) {
+    const short = randomShortCode();
+    if ((await getDoc(doc(db, 'codes', short))).exists()) continue;
+    const batch = writeBatch(db);
+    batch.set(doc(db, 'codes', short), { studentId: code, teacherId: user.uid });
+    batch.update(doc(db, 'students', code), { shortCode: short });
+    await batch.commit();
+    return short;
+  }
+  throw new Error('Could not create a short code, try again.');
 }
 
 function studentLink(code) {
@@ -229,19 +255,34 @@ function defaultAssignment(instrumentId) {
 
 async function addStudent(name, instrument) {
   const code = randomCode();
-  await setDoc(doc(db, 'students', code), {
+  const shortCode = randomShortCode();
+  const batch = writeBatch(db);
+  batch.set(doc(db, 'students', code), {
     teacherId: user.uid,
     name,
     instrument,
     assignment: defaultAssignment(instrument),
     assignmentUpdatedAt: serverTimestamp(),
     createdAt: serverTimestamp(),
+    shortCode,
   });
+  batch.set(doc(db, 'codes', shortCode), { studentId: code, teacherId: user.uid });
+  await batch.commit();
   selected = code;
   await loadStudents();
 }
 
 // ------------------------------------------------------------------ one student
+function showShortCode(s) {
+  $('db-s-short').textContent = s.shortCode ? formatShortCode(s.shortCode) : '…';
+  if (s.shortCode) return;
+  // Students from before short codes existed get one the first time they are opened.
+  createShortCode(s.code).then((short) => {
+    s.shortCode = short;
+    if (selected === s.code) $('db-s-short').textContent = formatShortCode(short);
+  }).catch((err) => { $('db-s-short').textContent = '?'; console.warn(err); });
+}
+
 async function selectStudent(code) {
   selected = code;
   const s = students.find((x) => x.code === code);
@@ -253,6 +294,7 @@ async function selectStudent(code) {
   $('db-s-name').textContent = s.name;
   $('db-s-link').value = studentLink(code);
   $('db-open').href = studentLink(code);
+  showShortCode(s);
   $('db-copy-msg').textContent = '';
   $('db-save-msg').textContent = '';
   writeAssignment(s);
@@ -517,9 +559,12 @@ function initMain() {
   });
   $('db-del-student').addEventListener('click', async () => {
     const s = students.find((x) => x.code === selected);
-    if (!s || !confirm(`Delete ${s.name} and all their results? Their personal link stops working.`)) return;
+    if (!s || !confirm(`Delete ${s.name} and all their results? Their personal link and code stop working.`)) return;
     await deleteResults(s.code);
-    await deleteDoc(doc(db, 'students', s.code));
+    const batch = writeBatch(db);
+    batch.delete(doc(db, 'students', s.code));
+    if (s.shortCode) batch.delete(doc(db, 'codes', s.shortCode));
+    await batch.commit();
     selected = null;
     $('db-student').hidden = true;
     $('db-empty').hidden = false;
