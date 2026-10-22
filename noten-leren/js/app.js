@@ -62,9 +62,9 @@
 
   // ---------- Personal student link (?code=…): assignment from and results to the teacher dashboard ----------
   function rememberCode(params) {
-    const code = params.get('code');
-    if (code && /^[a-z0-9]{12,40}$/i.test(code)) {
-      try { localStorage.setItem(CODE_KEY, code); } catch { /* private mode */ }
+    const code = (params.get('code') || '').toUpperCase();
+    if (/^[A-Z0-9]{8}$/.test(code)) {
+      try { localStorage.setItem(CODE_KEY, short); } catch { /* private mode */ }
     }
   }
 
@@ -88,10 +88,12 @@
     }
     if (!student) {
       // The teacher removed this student: forget the link and the teacher's message.
-      if (localStorage.getItem(CODE_KEY) === code) localStorage.removeItem(CODE_KEY);
-      localStorage.removeItem(APPLIED_KEY + ':' + code);
-      if (activeCode === code) activeCode = null;
-      Settings.setMessage('');
+      if (localStorage.getItem(CODE_KEY) === code) {
+        localStorage.removeItem(CODE_KEY);
+        localStorage.removeItem(APPLIED_KEY + ':' + code);
+        activeCode = null;
+        Settings.setMessage('');
+      }
       return 'unknown';
     }
     activeCode = code;
@@ -146,23 +148,14 @@
       const short = input.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
       if (short.length !== 8) { msg.textContent = 'Een code heeft 8 tekens, zoals K7MQ-4XPD.'; return; }
       msg.textContent = 'Even kijken…';
-      let code;
-      try {
-        code = await (await loadProgress()).resolveShortCode(short);
-      } catch (err) {
-        console.warn(err);
-        msg.textContent = 'Geen internet. Probeer het later nog eens.';
-        return;
-      }
-      if (!code) { msg.textContent = 'Deze code ken ik niet. Controleer de letters en cijfers.'; return; }
-      const result = await connectStudent(code);
+      const result = await connectStudent(short);
       if (result === 'ok') {
-        try { localStorage.setItem(CODE_KEY, code); } catch { /* private mode */ }
+        try { localStorage.setItem(CODE_KEY, short); } catch { /* private mode */ }
         msg.textContent = '';
         input.value = '';
         form.hidden = true;
       } else {
-        msg.textContent = result === 'offline' ? 'Geen internet. Probeer het later nog eens.' : 'Deze code werkt niet meer.';
+        msg.textContent = result === 'offline' ? 'Geen internet. Probeer het later nog eens.' : 'Deze code ken ik niet. Controleer de letters en cijfers.';
       }
     });
   }
