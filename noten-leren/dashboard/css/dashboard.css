@@ -1,6 +1,9 @@
 /* Teacher dashboard. Base styles come from ../css/style.css. */
 
 .db-page main { max-width: 1300px; }
+.db-topbar-actions { flex-wrap: wrap; justify-content: flex-end; }
+.db-shortcuts { display: flex; gap: 8px; flex-wrap: wrap; }
+.db-shortcuts a { text-decoration: none; }
 .lm-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
 .panel + .panel, .panel + form.panel, form.panel + .panel { margin-top: 18px; }
 .db-banner { background: #fff4d6; border: 2px solid #ffd77a; border-radius: 12px; padding: 8px 14px; }
