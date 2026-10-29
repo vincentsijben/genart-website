@@ -289,7 +289,7 @@ function renderStudentList() {
 
 function defaultAssignment(instrumentId) {
   const i = inst(instrumentId);
-  return { low: i.defaultLow, high: i.defaultHigh, sharps: false, flats: false, count: 10, autoplay: true, message: '' };
+  return { low: i.defaultLow, high: i.defaultHigh, sharps: 0, flats: 0, count: 10, autoplay: true, message: '' };
 }
 
 async function addStudent(name, instrument) {
@@ -345,8 +345,8 @@ function writeAssignment(s) {
   f.name.value = s.name;
   f.instrument.value = s.instrument;
   fillRangeSelects(f, s.instrument, a.low, a.high);
-  f.sharps.checked = a.sharps;
-  f.flats.checked = a.flats;
+  Notes.fillAccSelect(f.sharps, a.sharps, false, 'None');
+  Notes.fillAccSelect(f.flats, a.flats, true, 'None');
   f.count.value = a.count;
   f.autoplay.checked = a.autoplay;
   f.message.value = a.message;
@@ -363,8 +363,8 @@ function readAssignment() {
     assignment: {
       low: range.low,
       high: range.high,
-      sharps: f.sharps.checked,
-      flats: f.flats.checked,
+      sharps: Notes.accCount(f.sharps.value),
+      flats: Notes.accCount(f.flats.value),
       count: Math.min(100, Math.max(1, Math.round(Number(f.count.value)) || 10)),
       autoplay: f.autoplay.checked,
       message: f.message.value.trim().slice(0, 200),
@@ -497,7 +497,7 @@ function renderTable() {
       d.toLocaleString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }),
       inst(r.instrument).shortEn,
       r.low + '–' + r.high,
-      [r.sharps ? '♯' : '', r.flats ? '♭' : ''].join(' ').trim() || '–',
+      accCell(r),
       r.correct + '/' + r.count,
     ];
     cells.forEach((c) => tr.appendChild(el('td', null, c)));
@@ -505,6 +505,13 @@ function renderTable() {
     tr.appendChild(el('td', null, Math.floor(secs / 60) + ':' + String(secs % 60).padStart(2, '0')));
     table.appendChild(tr);
   }
+}
+
+/** "2♯ 1♭" (older results stored on/off: on = all five). */
+function accCell(r) {
+  const s = Notes.accCount(r.sharps);
+  const f = Notes.accCount(r.flats);
+  return [s ? s + '♯' : '', f ? f + '♭' : ''].join(' ').trim() || '–';
 }
 
 async function deleteResults(code, olderThan) {

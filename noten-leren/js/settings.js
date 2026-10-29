@@ -4,7 +4,8 @@
 const Settings = (() => {
   const KEY = 'saxnoten.quiz.v2';
   const OLD_KEY = 'saxnoten.quiz.v1'; // before instruments existed: alto sax only
-  const COMMON_DEFAULTS = { sharps: false, flats: false, count: 10, autoplay: true };
+  // sharps/flats: how many (0–5), in key signature order (see Notes.accCount).
+  const COMMON_DEFAULTS = { sharps: 0, flats: 0, count: 10, autoplay: true };
 
   function defaultsFor(inst) {
     return { low: inst.defaultLow, high: inst.defaultHigh, ...COMMON_DEFAULTS };
@@ -14,8 +15,8 @@ const Settings = (() => {
     const d = defaultsFor(inst);
     const out = { ...d, ...s };
     Object.assign(out, Notes.sanitizeRange(out.low, out.high, d.low, d.high, inst.rangeIds));
-    out.sharps = Boolean(out.sharps);
-    out.flats = Boolean(out.flats);
+    out.sharps = Notes.accCount(out.sharps);
+    out.flats = Notes.accCount(out.flats);
     out.autoplay = Boolean(out.autoplay);
     out.count = Math.min(100, Math.max(1, Math.round(Number(out.count)) || d.count));
     return out;
@@ -44,7 +45,8 @@ const Settings = (() => {
     try { localStorage.setItem(KEY, JSON.stringify(all)); } catch { /* private mode */ }
   }
 
-  const PARAMS = ['instrument', 'laag', 'hoog', 'kruizen', 'mollen', 'aantal', 'geluid', 'bericht'];
+  // kruizen/mollen = old on/off links (1 = all five); aantalkruizen/aantalmollen = how many (0–5).
+  const PARAMS = ['instrument', 'laag', 'hoog', 'kruizen', 'mollen', 'aantalkruizen', 'aantalmollen', 'aantal', 'geluid', 'bericht'];
 
   // Personal message from the teacher (same for every instrument).
   const MESSAGE_KEY = 'saxnoten.message';
@@ -65,16 +67,20 @@ const Settings = (() => {
     box.hidden = !message;
   }
 
-  /** Apply settings from a shared link like ?instrument=klarinet&laag=E4&hoog=C6&kruizen=1&aantal=10 */
+  /** Apply settings from a shared link like ?instrument=klarinet&laag=E4&hoog=C6&aantalkruizen=2&aantal=10 */
   function applyParams(params) {
     if (params.has('instrument')) Instruments.set(params.get('instrument'));
     if (params.has('bericht')) setMessage(params.get('bericht'));
-    const map = { laag: 'low', hoog: 'high', kruizen: 'sharps', mollen: 'flats', aantal: 'count', geluid: 'autoplay' };
+    const map = {
+      laag: 'low', hoog: 'high', kruizen: 'sharps', mollen: 'flats',
+      aantalkruizen: 'sharps', aantalmollen: 'flats', aantal: 'count', geluid: 'autoplay',
+    };
     const patch = {};
     for (const [nl, key] of Object.entries(map)) {
       if (!params.has(nl)) continue;
       const v = params.get(nl);
-      patch[key] = ['sharps', 'flats', 'autoplay'].includes(key) ? v === '1' : v;
+      if (nl === 'kruizen' || nl === 'mollen') patch[key] = v === '1';
+      else patch[key] = key === 'autoplay' ? v === '1' : v;
     }
     if (Object.keys(patch).length) set(patch);
   }
@@ -82,7 +88,7 @@ const Settings = (() => {
   function shareUrl(s) {
     const q = new URLSearchParams({
       instrument: Instruments.get().id,
-      laag: s.low, hoog: s.high, kruizen: s.sharps ? 1 : 0, mollen: s.flats ? 1 : 0,
+      laag: s.low, hoog: s.high, aantalkruizen: s.sharps, aantalmollen: s.flats,
       aantal: s.count, geluid: s.autoplay ? 1 : 0,
     });
     const msg = form.elements.message.value.trim().slice(0, MESSAGE_MAX);
@@ -96,7 +102,7 @@ const Settings = (() => {
   function readForm() {
     const f = form.elements;
     return sanitize({
-      low: f.low.value, high: f.high.value, sharps: f.sharps.checked, flats: f.flats.checked,
+      low: f.low.value, high: f.high.value, sharps: f.sharps.value, flats: f.flats.value,
       count: f.count.value, autoplay: f.autoplay.checked,
     });
   }
@@ -106,8 +112,8 @@ const Settings = (() => {
     const ids = Instruments.get().rangeIds;
     Notes.fillRangeSelect(f.low, s.low, ids);
     Notes.fillRangeSelect(f.high, s.high, ids);
-    f.sharps.checked = s.sharps;
-    f.flats.checked = s.flats;
+    Notes.fillAccSelect(f.sharps, s.sharps, false);
+    Notes.fillAccSelect(f.flats, s.flats, true);
     f.count.value = s.count;
     f.autoplay.checked = s.autoplay;
     updatePoolInfo();

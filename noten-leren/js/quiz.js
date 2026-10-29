@@ -21,8 +21,8 @@ const Quiz = (() => {
 
   function buildButtons(s) {
     const rows = [Notes.NATURAL_NAMES];
-    if (s.sharps) rows.push(Notes.SHARP_NAMES);
-    if (s.flats) rows.push(Notes.FLAT_NAMES);
+    if (s.sharps) rows.push(Notes.sharpNames(s.sharps));
+    if (s.flats) rows.push(Notes.flatNames(s.flats));
     el.buttons.innerHTML = '';
     for (const row of rows) {
       const div = document.createElement('div');

@@ -7,7 +7,7 @@
   const DEFAULTS = {
     instrument: Instruments.DEFAULT_ID, title: 'Notenwerkblad', intro: '', introAll: false,
     showName: true, studentName: '', showDate: true, date: '',
-    low: 'D4', high: 'C6', sharps: false, flats: false,
+    low: 'D4', high: 'C6', sharps: 0, flats: 0,
     pages: 2, lines: 6, perLine: 8, answers: true, hint: true,
   };
 
@@ -33,7 +33,9 @@
     out.pages = clampInt(out.pages, 1, 30, DEFAULTS.pages);
     out.lines = clampInt(out.lines, 1, 10, DEFAULTS.lines);
     out.perLine = clampInt(out.perLine, 2, 12, DEFAULTS.perLine);
-    ['sharps', 'flats', 'answers', 'hint', 'introAll', 'showName', 'showDate'].forEach((k) => { out[k] = Boolean(out[k]); });
+    out.sharps = Notes.accCount(out.sharps);
+    out.flats = Notes.accCount(out.flats);
+    ['answers', 'hint', 'introAll', 'showName', 'showDate'].forEach((k) => { out[k] = Boolean(out[k]); });
     return out;
   }
 
@@ -57,7 +59,7 @@
       showName: f.showName.checked, studentName: f.studentName.value,
       showDate: f.showDate.checked, date: f.date.value,
       low: f.low.value, high: f.high.value,
-      sharps: f.sharps.checked, flats: f.flats.checked,
+      sharps: f.sharps.value, flats: f.flats.value,
       pages: f.pages.value, lines: f.lines.value, perLine: f.perLine.value,
       answers: f.answers.checked, hint: f.hint.checked,
     });
@@ -76,8 +78,8 @@
     const ids = instrumentOf(s).rangeIds;
     Notes.fillRangeSelect(f.low, s.low, ids);
     Notes.fillRangeSelect(f.high, s.high, ids);
-    f.sharps.checked = s.sharps;
-    f.flats.checked = s.flats;
+    Notes.fillAccSelect(f.sharps, s.sharps, false);
+    Notes.fillAccSelect(f.flats, s.flats, true);
     f.pages.value = s.pages;
     f.lines.value = s.lines;
     f.perLine.value = s.perLine;

@@ -7,8 +7,10 @@
 const Notes = (() => {
   const LETTERS = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
   const SEMITONES = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
-  const SHARPABLE = ['C', 'D', 'F', 'G', 'A'];
-  const FLATTABLE = ['D', 'E', 'G', 'A', 'B'];
+  // Key signature order: 1 sharp = F♯, 2 = F♯ C♯, … / 1 flat = B♭, 2 = B♭ E♭, …
+  const SHARP_ORDER = ['F', 'C', 'G', 'D', 'A'];
+  const FLAT_ORDER = ['B', 'E', 'A', 'D', 'G'];
+  const MAX_ACC = SHARP_ORDER.length;
 
   const NATURAL_NAMES = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
   const SHARP_NAMES = ['cis', 'dis', 'fis', 'gis', 'ais'];
@@ -83,18 +85,47 @@ const Notes = (() => {
     return a.letter === b.letter && a.acc === b.acc && a.octave === b.octave;
   }
 
-  /** All notes between low and high (inclusive), optionally with sharps/flats. */
+  /** Number of sharps/flats 0–5. Old settings stored on/off: true = all 5. */
+  function accCount(v) {
+    if (v === true) return MAX_ACC;
+    const n = Math.round(Number(v));
+    return Number.isFinite(n) ? Math.min(MAX_ACC, Math.max(0, n)) : 0;
+  }
+
+  const sharpLetters = (count) => SHARP_ORDER.slice(0, accCount(count));
+  const flatLetters = (count) => FLAT_ORDER.slice(0, accCount(count));
+
+  /** Dutch names of the first `count` sharps (or flats), in alphabetical order (cis dis fis …). */
+  function sharpNames(count) {
+    const ls = sharpLetters(count);
+    return SHARP_NAMES.filter((n) => ls.includes(n[0].toUpperCase()));
+  }
+
+  function flatNames(count) {
+    const ls = flatLetters(count);
+    return FLAT_NAMES.filter((n) => ls.includes(n[0].toUpperCase()));
+  }
+
+  /** Dutch names in key signature order, e.g. 3 → "fis, cis, gis". */
+  function accLabel(count, flat) {
+    const ls = flat ? flatLetters(count) : sharpLetters(count);
+    return ls.map((L) => dutchName(make(L, flat ? -1 : 1, 4))).join(', ');
+  }
+
+  /** All notes between low and high (inclusive), with the first `sharps` sharps and `flats` flats (0–5). */
   function pool(lowId, highId, sharps, flats) {
     let lo = parse(lowId).midi;
     let hi = parse(highId).midi;
     if (lo > hi) [lo, hi] = [hi, lo];
+    const sharpLs = sharpLetters(sharps);
+    const flatLs = flatLetters(flats);
     const out = [];
     for (let o = 2; o <= 7; o++) {
       for (const L of LETTERS) {
         const candidates = [];
-        if (flats && FLATTABLE.includes(L)) candidates.push(make(L, -1, o));
+        if (flatLs.includes(L)) candidates.push(make(L, -1, o));
         candidates.push(make(L, 0, o));
-        if (sharps && SHARPABLE.includes(L)) candidates.push(make(L, 1, o));
+        if (sharpLs.includes(L)) candidates.push(make(L, 1, o));
         for (const c of candidates) if (c.midi >= lo && c.midi <= hi) out.push(c);
       }
     }
@@ -150,6 +181,18 @@ const Notes = (() => {
     select.value = value;
   }
 
+  /** Options 0–5 for a sharps/flats <select>: "Geen", "1 ♯ (fis)", "2 ♯ (fis, cis)", … */
+  function fillAccSelect(select, value, flat, noneLabel = 'Geen') {
+    select.innerHTML = '';
+    for (let n = 0; n <= MAX_ACC; n++) {
+      const opt = document.createElement('option');
+      opt.value = String(n);
+      opt.textContent = n ? n + ' ' + (flat ? '♭' : '♯') + '  (' + accLabel(n, flat) + ')' : noneLabel;
+      select.appendChild(opt);
+    }
+    select.value = String(accCount(value));
+  }
+
   function poolSummary(s) {
     const p = pool(s.low, s.high, s.sharps, s.flats);
     if (!p.length) return 'Geen noten in dit bereik. Kies een groter bereik.';
@@ -157,8 +200,9 @@ const Notes = (() => {
   }
 
   return {
-    RANGE_IDS, NATURAL_NAMES, SHARP_NAMES, FLAT_NAMES, ALL_NAMES,
+    RANGE_IDS, NATURAL_NAMES, SHARP_NAMES, FLAT_NAMES, ALL_NAMES, MAX_ACC,
     parse, id, label, dutchName, normalizeAnswer, isKnownName, toAbc, same, pool, sequence,
     rangeIds, sanitizeRange, fillRangeSelect, poolSummary,
+    accCount, sharpNames, flatNames, accLabel, fillAccSelect,
   };
 })();
