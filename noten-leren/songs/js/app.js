@@ -267,9 +267,12 @@
     const lo = Notes.parse(o.low).midi;
     const hi = Notes.parse(o.high).midi;
     const sliced = Arrange.slice(state.song, o.from, o.to);
+    // Use the key signature that fits the notes in these bars, not blindly the one from the file.
+    sliced.fifths = Song.fitFifths(sliced.notes, sliced.fifths);
+    const songFifths = Song.fitFifths(state.song.notes, state.song.fifths);
     el.songInfo.hidden = false;
     el.songInfo.textContent = '“' + state.song.title + '” · ' + state.song.bars.length + ' bars · ' +
-      state.song.bars[0].num + '/' + state.song.bars[0].den + ' · original key ' + Song.keyNameEn(state.song.fifths, state.song.mode) + ' (concert).';
+      state.song.bars[0].num + '/' + state.song.bars[0].den + ' · original key ' + Song.keyNameEn(songFifths, state.song.mode) + ' (concert).';
     if (!sliced.notes.length) {
       renderHeader(sliced.fifths, sliced.mode);
       el.fit.textContent = '';

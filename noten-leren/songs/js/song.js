@@ -54,6 +54,25 @@ const Song = (() => {
     return 0;
   }
 
+  /**
+   * Key signature that best fits the notes as they are spelled: the fewest notes that need an
+   * accidental. Ties keep `current` (the file's own key), then prefer fewer sharps/flats.
+   * Fixes files whose key signature is cancelled by naturals on every note (e.g. 5 sharps, but
+   * only G, B, E, D are played), which is very hard to read for beginners.
+   */
+  function fitFifths(notes, current = 0) {
+    const cost = (f) => notes.reduce((sum, n) => sum + (n.pitch.alter === keyAlter(f, n.pitch.step) ? 0 : 1), 0);
+    const rank = (f) => [cost(f), f === current ? 0 : 1, Math.abs(f)];
+    let best = current;
+    for (let f = -7; f <= 7; f++) {
+      const a = rank(f);
+      const b = rank(best);
+      const i = a.findIndex((x, k) => x !== b[k]);
+      if (i >= 0 && a[i] < b[i]) best = f;
+    }
+    return best;
+  }
+
   /** Key signature change (in fifths) caused by transposing with an interval. */
   function fifthsOfInterval(iv) {
     let best = 0;
@@ -149,7 +168,7 @@ const Song = (() => {
   }
 
   return {
-    TPQ, LETTERS, mod, midiOf, diatonicOf, transposePitch, samePitch, keyAlter, fifthsOfInterval,
+    TPQ, LETTERS, mod, midiOf, diatonicOf, transposePitch, samePitch, keyAlter, fitFifths, fifthsOfInterval,
     intervalForFifths, spellMidi, dutchName, pitchLabel, keyName, keyNameEn, keySignatureLabelEn, abcKey, barLength, guessFifths,
   };
 })();
