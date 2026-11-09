@@ -296,6 +296,13 @@
       generate(true);
       render();
     });
+    // "Save as PDF" uses the page title as the file name: use the worksheet title (and student name).
+    const pageTitle = document.title;
+    window.addEventListener('beforeprint', () => {
+      const name = settings.showName ? settings.studentName.trim() : '';
+      document.title = (settings.title.trim() || 'Notenwerkblad') + (name ? ' - ' + name : '');
+    });
+    window.addEventListener('afterprint', () => { document.title = pageTitle; });
     document.getElementById('ws-print').addEventListener('click', () => {
       clearTimeout(renderTimer);
       settings = readForm();

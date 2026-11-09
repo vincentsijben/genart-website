@@ -406,6 +406,14 @@
       }
     });
     el.stop.addEventListener('click', () => Player.stop());
+    // "Save as PDF" uses the page title as the file name: use the song title (and student name).
+    const pageTitle = document.title;
+    window.addEventListener('beforeprint', () => {
+      const o = state.opts;
+      const name = o.showName ? o.studentName.trim() : '';
+      if (state.song) document.title = (o.title.trim() || state.song.title || 'Liedje') + (name ? ' - ' + name : '');
+    });
+    window.addEventListener('afterprint', () => { document.title = pageTitle; });
     $('lm-print').addEventListener('click', () => {
       clearTimeout(timer);
       update();
