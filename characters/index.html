@@ -1,1 +1,310 @@
-d
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Character Designs</title>
+<style>
+  :root { --bg:#f6f5f2; --card:#fff; --ink:#1d1d1f; --muted:#86868b; --line:#e4e2dd; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#141414; --card:#1f1f1f; --ink:#f2f2f2; --muted:#8e8e93; --line:#2e2e2e; } }
+  * { box-sizing:border-box; margin:0; }
+  body { background:var(--bg); color:var(--ink); font:15px/1.4 system-ui,-apple-system,sans-serif; padding:48px 24px 80px; }
+  header, section { max-width:1400px; margin:0 auto; }
+  header { display:flex; flex-wrap:wrap; gap:16px; align-items:end; justify-content:space-between; margin-bottom:40px; }
+  h1 { font-size:clamp(28px,4vw,44px); letter-spacing:-.02em; }
+  header p { color:var(--muted); margin-top:4px; }
+  input { font:inherit; padding:10px 14px; border:1px solid var(--line); border-radius:10px; background:var(--card); color:var(--ink); width:240px; }
+  section { margin-bottom:56px; }
+  h2 { font-size:20px; margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+  h2 span { color:var(--muted); font-weight:400; font-size:15px; margin-left:6px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:16px; }
+  figure { background:var(--card); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  figure[hidden] { display:none; }
+  figure button { all:unset; display:block; width:100%; aspect-ratio:1; cursor:zoom-in; background:#fff; }
+  figure img { width:100%; height:100%; object-fit:contain; display:block; transition:transform .2s; }
+  figure button:hover img { transform:scale(1.04); }
+  figcaption { display:flex; justify-content:space-between; gap:8px; padding:10px 12px; border-top:1px solid var(--line); }
+  figcaption span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  figcaption small { color:var(--muted); }
+  dialog { border:0; padding:0; margin:auto; inset:0; background:transparent; max-width:90vw; max-height:90vh; overflow:visible; }
+  dialog img { margin:0 auto; }
+  dialog::backdrop { background:rgba(0,0,0,.85); }
+  dialog img { max-width:90vw; max-height:85vh; display:block; background:#fff; border-radius:8px; }
+  dialog p { color:#fff; text-align:center; margin-top:10px; }
+  @media (max-width:500px) { body { padding:32px 16px; } .grid { grid-template-columns:repeat(2,1fr); gap:10px; } input { width:100%; } }
+</style>
+</head>
+<body>
+  <header>
+    <div><h1>Character Designs</h1><p>MMT2 · CMD1 · 227 works, 2021–2026</p></div>
+    <input type="search" placeholder="Search by name…" aria-label="Search by name">
+  </header>
+  <section>
+    <h2>2021-2022 <span>59</span></h2>
+    <div class="grid">
+      <figure data-name="dion"><button type="button"><img src="character-designs/2021-2022/cmd1a_dion.png" alt="Dion" loading="lazy"></button><figcaption><span>Dion</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="fabrice"><button type="button"><img src="character-designs/2021-2022/cmd1a_fabrice.png" alt="Fabrice" loading="lazy"></button><figcaption><span>Fabrice</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="floor"><button type="button"><img src="character-designs/2021-2022/cmd1a_floor.png" alt="Floor" loading="lazy"></button><figcaption><span>Floor</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="ilse"><button type="button"><img src="character-designs/2021-2022/cmd1a_ilse.png" alt="Ilse" loading="lazy"></button><figcaption><span>Ilse</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="lynn"><button type="button"><img src="character-designs/2021-2022/cmd1a_lynn.png" alt="Lynn" loading="lazy"></button><figcaption><span>Lynn</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="nikki"><button type="button"><img src="character-designs/2021-2022/cmd1a_nikki.png" alt="Nikki" loading="lazy"></button><figcaption><span>Nikki</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="patrick"><button type="button"><img src="character-designs/2021-2022/cmd1a_patrick.png" alt="Patrick" loading="lazy"></button><figcaption><span>Patrick</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="raf"><button type="button"><img src="character-designs/2021-2022/cmd1a_raf.png" alt="Raf" loading="lazy"></button><figcaption><span>Raf</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="ridvan"><button type="button"><img src="character-designs/2021-2022/cmd1a_ridvan.png" alt="Ridvan" loading="lazy"></button><figcaption><span>Ridvan</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="roel"><button type="button"><img src="character-designs/2021-2022/cmd1a_roel.png" alt="Roel" loading="lazy"></button><figcaption><span>Roel</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="seb"><button type="button"><img src="character-designs/2021-2022/cmd1a_seb.png" alt="Seb" loading="lazy"></button><figcaption><span>Seb</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="sem"><button type="button"><img src="character-designs/2021-2022/cmd1a_sem.png" alt="Sem" loading="lazy"></button><figcaption><span>Sem</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="thika"><button type="button"><img src="character-designs/2021-2022/cmd1a_thika.png" alt="Thika" loading="lazy"></button><figcaption><span>Thika</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="yatosha"><button type="button"><img src="character-designs/2021-2022/cmd1a_yatosha.png" alt="Yatosha" loading="lazy"></button><figcaption><span>Yatosha</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="youri"><button type="button"><img src="character-designs/2021-2022/cmd1a_youri.png" alt="Youri" loading="lazy"></button><figcaption><span>Youri</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="aiden"><button type="button"><img src="character-designs/2021-2022/cmd1b_aiden.png" alt="Aiden" loading="lazy"></button><figcaption><span>Aiden</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="guus"><button type="button"><img src="character-designs/2021-2022/cmd1b_guus.png" alt="Guus" loading="lazy"></button><figcaption><span>Guus</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="iris"><button type="button"><img src="character-designs/2021-2022/cmd1b_iris.png" alt="Iris" loading="lazy"></button><figcaption><span>Iris</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="jelle"><button type="button"><img src="character-designs/2021-2022/cmd1b_jelle.png" alt="Jelle" loading="lazy"></button><figcaption><span>Jelle</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="jonathan"><button type="button"><img src="character-designs/2021-2022/cmd1b_jonathan.png" alt="Jonathan" loading="lazy"></button><figcaption><span>Jonathan</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="lisa"><button type="button"><img src="character-designs/2021-2022/cmd1b_lisa.png" alt="Lisa" loading="lazy"></button><figcaption><span>Lisa</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="lizette"><button type="button"><img src="character-designs/2021-2022/cmd1b_lizette.png" alt="Lizette" loading="lazy"></button><figcaption><span>Lizette</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="milena"><button type="button"><img src="character-designs/2021-2022/cmd1b_milena.png" alt="Milena" loading="lazy"></button><figcaption><span>Milena</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="nadine"><button type="button"><img src="character-designs/2021-2022/cmd1b_nadine.png" alt="Nadine" loading="lazy"></button><figcaption><span>Nadine</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="rodger"><button type="button"><img src="character-designs/2021-2022/cmd1b_rodger.png" alt="Rodger" loading="lazy"></button><figcaption><span>Rodger</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="ylona"><button type="button"><img src="character-designs/2021-2022/cmd1b_ylona.png" alt="Ylona" loading="lazy"></button><figcaption><span>Ylona</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="albert"><button type="button"><img src="character-designs/2021-2022/cmd1c_albert.png" alt="Albert" loading="lazy"></button><figcaption><span>Albert</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="bob"><button type="button"><img src="character-designs/2021-2022/cmd1c_bob.png" alt="Bob" loading="lazy"></button><figcaption><span>Bob</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="britt"><button type="button"><img src="character-designs/2021-2022/cmd1c_britt.png" alt="Britt" loading="lazy"></button><figcaption><span>Britt</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="collin"><button type="button"><img src="character-designs/2021-2022/cmd1c_collin.png" alt="Collin" loading="lazy"></button><figcaption><span>Collin</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="daan"><button type="button"><img src="character-designs/2021-2022/cmd1c_daan.png" alt="Daan" loading="lazy"></button><figcaption><span>Daan</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="dean"><button type="button"><img src="character-designs/2021-2022/cmd1c_dean.png" alt="Dean" loading="lazy"></button><figcaption><span>Dean</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="ervin"><button type="button"><img src="character-designs/2021-2022/cmd1c_ervin.png" alt="Ervin" loading="lazy"></button><figcaption><span>Ervin</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="juul"><button type="button"><img src="character-designs/2021-2022/cmd1c_juul.png" alt="Juul" loading="lazy"></button><figcaption><span>Juul</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="karen"><button type="button"><img src="character-designs/2021-2022/cmd1c_karen.png" alt="Karen" loading="lazy"></button><figcaption><span>Karen</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="luuk"><button type="button"><img src="character-designs/2021-2022/cmd1c_luuk.png" alt="Luuk" loading="lazy"></button><figcaption><span>Luuk</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="pepijn"><button type="button"><img src="character-designs/2021-2022/cmd1c_pepijn.png" alt="Pepijn" loading="lazy"></button><figcaption><span>Pepijn</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="philip"><button type="button"><img src="character-designs/2021-2022/cmd1c_philip.png" alt="Philip" loading="lazy"></button><figcaption><span>Philip</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="vic"><button type="button"><img src="character-designs/2021-2022/cmd1c_vic.png" alt="Vic" loading="lazy"></button><figcaption><span>Vic</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="wouter"><button type="button"><img src="character-designs/2021-2022/cmd1c_wouter.png" alt="Wouter" loading="lazy"></button><figcaption><span>Wouter</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="danique"><button type="button"><img src="character-designs/2021-2022/cmd1d_danique.png" alt="Danique" loading="lazy"></button><figcaption><span>Danique</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="denis"><button type="button"><img src="character-designs/2021-2022/cmd1d_denis.png" alt="Denis" loading="lazy"></button><figcaption><span>Denis</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="douwe"><button type="button"><img src="character-designs/2021-2022/cmd1d_douwe.png" alt="Douwe" loading="lazy"></button><figcaption><span>Douwe</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="evan"><button type="button"><img src="character-designs/2021-2022/cmd1d_evan.png" alt="Evan" loading="lazy"></button><figcaption><span>Evan</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="iris"><button type="button"><img src="character-designs/2021-2022/cmd1d_iris.png" alt="Iris" loading="lazy"></button><figcaption><span>Iris</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="janou"><button type="button"><img src="character-designs/2021-2022/cmd1d_janou.png" alt="Janou" loading="lazy"></button><figcaption><span>Janou</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="jelle"><button type="button"><img src="character-designs/2021-2022/cmd1d_jelle.png" alt="Jelle" loading="lazy"></button><figcaption><span>Jelle</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="jesper"><button type="button"><img src="character-designs/2021-2022/cmd1d_jesper.png" alt="Jesper" loading="lazy"></button><figcaption><span>Jesper</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="juup"><button type="button"><img src="character-designs/2021-2022/cmd1d_juup.png" alt="Juup" loading="lazy"></button><figcaption><span>Juup</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="laurel"><button type="button"><img src="character-designs/2021-2022/cmd1d_laurel.png" alt="Laurel" loading="lazy"></button><figcaption><span>Laurel</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="li li"><button type="button"><img src="character-designs/2021-2022/cmd1d_li-li.png" alt="Li Li" loading="lazy"></button><figcaption><span>Li Li</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="luuk"><button type="button"><img src="character-designs/2021-2022/cmd1d_luuk.png" alt="Luuk" loading="lazy"></button><figcaption><span>Luuk</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="mayke"><button type="button"><img src="character-designs/2021-2022/cmd1d_mayke.png" alt="Mayke" loading="lazy"></button><figcaption><span>Mayke</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="mick"><button type="button"><img src="character-designs/2021-2022/cmd1d_mick.png" alt="Mick" loading="lazy"></button><figcaption><span>Mick</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="mila"><button type="button"><img src="character-designs/2021-2022/cmd1d_mila.png" alt="Mila" loading="lazy"></button><figcaption><span>Mila</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="rafik"><button type="button"><img src="character-designs/2021-2022/cmd1d_rafik.png" alt="Rafik" loading="lazy"></button><figcaption><span>Rafik</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="roxy"><button type="button"><img src="character-designs/2021-2022/cmd1d_roxy.png" alt="Roxy" loading="lazy"></button><figcaption><span>Roxy</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="simon"><button type="button"><img src="character-designs/2021-2022/cmd1d_simon.png" alt="Simon" loading="lazy"></button><figcaption><span>Simon</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="tim"><button type="button"><img src="character-designs/2021-2022/cmd1d_tim.png" alt="Tim" loading="lazy"></button><figcaption><span>Tim</span><small>CMD1D</small></figcaption></figure>
+    </div>
+  </section>
+  <section>
+    <h2>2022-2023 <span>51</span></h2>
+    <div class="grid">
+      <figure data-name="chanice"><button type="button"><img src="character-designs/2022-2023/cmd1a_chanice.png" alt="Chanice" loading="lazy"></button><figcaption><span>Chanice</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="kevin"><button type="button"><img src="character-designs/2022-2023/cmd1a_kevin.png" alt="Kevin" loading="lazy"></button><figcaption><span>Kevin</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="mo"><button type="button"><img src="character-designs/2022-2023/cmd1a_mo.png" alt="Mo" loading="lazy"></button><figcaption><span>Mo</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="renske"><button type="button"><img src="character-designs/2022-2023/cmd1a_renske.png" alt="Renske" loading="lazy"></button><figcaption><span>Renske</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="rianne"><button type="button"><img src="character-designs/2022-2023/cmd1a_rianne.png" alt="Rianne" loading="lazy"></button><figcaption><span>Rianne</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="robin"><button type="button"><img src="character-designs/2022-2023/cmd1a_robin.png" alt="Robin" loading="lazy"></button><figcaption><span>Robin</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="bas"><button type="button"><img src="character-designs/2022-2023/cmd1b_bas.png" alt="Bas" loading="lazy"></button><figcaption><span>Bas</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="bo"><button type="button"><img src="character-designs/2022-2023/cmd1b_bo.png" alt="Bo" loading="lazy"></button><figcaption><span>Bo</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="clim"><button type="button"><img src="character-designs/2022-2023/cmd1b_clim.png" alt="Clim" loading="lazy"></button><figcaption><span>Clim</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="evid"><button type="button"><img src="character-designs/2022-2023/cmd1b_evid.png" alt="Evid" loading="lazy"></button><figcaption><span>Evid</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="eviz"><button type="button"><img src="character-designs/2022-2023/cmd1b_eviz.png" alt="Eviz" loading="lazy"></button><figcaption><span>Eviz</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="ferry"><button type="button"><img src="character-designs/2022-2023/cmd1b_ferry.png" alt="Ferry" loading="lazy"></button><figcaption><span>Ferry</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="joey"><button type="button"><img src="character-designs/2022-2023/cmd1b_joey.png" alt="Joey" loading="lazy"></button><figcaption><span>Joey</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="jurgen"><button type="button"><img src="character-designs/2022-2023/cmd1b_jurgen.png" alt="Jurgen" loading="lazy"></button><figcaption><span>Jurgen</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="pieternelle"><button type="button"><img src="character-designs/2022-2023/cmd1b_pieternelle.png" alt="Pieternelle" loading="lazy"></button><figcaption><span>Pieternelle</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="rik"><button type="button"><img src="character-designs/2022-2023/cmd1b_rik.png" alt="Rik" loading="lazy"></button><figcaption><span>Rik</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="robin"><button type="button"><img src="character-designs/2022-2023/cmd1b_robin.png" alt="Robin" loading="lazy"></button><figcaption><span>Robin</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="sem"><button type="button"><img src="character-designs/2022-2023/cmd1b_sem.png" alt="Sem" loading="lazy"></button><figcaption><span>Sem</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="semuel"><button type="button"><img src="character-designs/2022-2023/cmd1b_semuel.png" alt="Semuel" loading="lazy"></button><figcaption><span>Semuel</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="stan"><button type="button"><img src="character-designs/2022-2023/cmd1b_stan.png" alt="Stan" loading="lazy"></button><figcaption><span>Stan</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="teun"><button type="button"><img src="character-designs/2022-2023/cmd1b_teun.png" alt="Teun" loading="lazy"></button><figcaption><span>Teun</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="thomas"><button type="button"><img src="character-designs/2022-2023/cmd1b_thomas.png" alt="Thomas" loading="lazy"></button><figcaption><span>Thomas</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="tibbe"><button type="button"><img src="character-designs/2022-2023/cmd1b_tibbe.png" alt="Tibbe" loading="lazy"></button><figcaption><span>Tibbe</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="armand"><button type="button"><img src="character-designs/2022-2023/cmd1c_armand.png" alt="Armand" loading="lazy"></button><figcaption><span>Armand</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="daphne schilperoort"><button type="button"><img src="character-designs/2022-2023/cmd1c_daphne-schilperoort.png" alt="Daphne Schilperoort" loading="lazy"></button><figcaption><span>Daphne Schilperoort</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="elya"><button type="button"><img src="character-designs/2022-2023/cmd1c_elya.png" alt="Elya" loading="lazy"></button><figcaption><span>Elya</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="fee"><button type="button"><img src="character-designs/2022-2023/cmd1c_fee.png" alt="Fee" loading="lazy"></button><figcaption><span>Fee</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="fleur"><button type="button"><img src="character-designs/2022-2023/cmd1c_fleur.png" alt="Fleur" loading="lazy"></button><figcaption><span>Fleur</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="jules lamkin"><button type="button"><img src="character-designs/2022-2023/cmd1c_jules-lamkin.png" alt="Jules Lamkin" loading="lazy"></button><figcaption><span>Jules Lamkin</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="kendra"><button type="button"><img src="character-designs/2022-2023/cmd1c_kendra.png" alt="Kendra" loading="lazy"></button><figcaption><span>Kendra</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="kenny"><button type="button"><img src="character-designs/2022-2023/cmd1c_kenny.png" alt="Kenny" loading="lazy"></button><figcaption><span>Kenny</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="leonie"><button type="button"><img src="character-designs/2022-2023/cmd1c_leonie.png" alt="Leonie" loading="lazy"></button><figcaption><span>Leonie</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="maud"><button type="button"><img src="character-designs/2022-2023/cmd1c_maud.png" alt="Maud" loading="lazy"></button><figcaption><span>Maud</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="michelle"><button type="button"><img src="character-designs/2022-2023/cmd1c_michelle.png" alt="Michelle" loading="lazy"></button><figcaption><span>Michelle</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="noah dorssers"><button type="button"><img src="character-designs/2022-2023/cmd1c_noah-dorssers.png" alt="Noah Dorssers" loading="lazy"></button><figcaption><span>Noah Dorssers</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="roman pijls"><button type="button"><img src="character-designs/2022-2023/cmd1c_roman-pijls.png" alt="Roman Pijls" loading="lazy"></button><figcaption><span>Roman Pijls</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="wouter"><button type="button"><img src="character-designs/2022-2023/cmd1c_wouter.png" alt="Wouter" loading="lazy"></button><figcaption><span>Wouter</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="bing"><button type="button"><img src="character-designs/2022-2023/cmd1d_bing.png" alt="Bing" loading="lazy"></button><figcaption><span>Bing</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="cas"><button type="button"><img src="character-designs/2022-2023/cmd1d_cas.png" alt="Cas" loading="lazy"></button><figcaption><span>Cas</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="daphne"><button type="button"><img src="character-designs/2022-2023/cmd1d_daphne.png" alt="Daphne" loading="lazy"></button><figcaption><span>Daphne</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="driek"><button type="button"><img src="character-designs/2022-2023/cmd1d_driek.png" alt="Driek" loading="lazy"></button><figcaption><span>Driek</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="iris"><button type="button"><img src="character-designs/2022-2023/cmd1d_iris.png" alt="Iris" loading="lazy"></button><figcaption><span>Iris</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="jorgos"><button type="button"><img src="character-designs/2022-2023/cmd1d_jorgos.png" alt="Jorgos" loading="lazy"></button><figcaption><span>Jorgos</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="julie"><button type="button"><img src="character-designs/2022-2023/cmd1d_julie.png" alt="Julie" loading="lazy"></button><figcaption><span>Julie</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="kicken"><button type="button"><img src="character-designs/2022-2023/cmd1d_kicken.png" alt="Kicken" loading="lazy"></button><figcaption><span>Kicken</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="lauryn"><button type="button"><img src="character-designs/2022-2023/cmd1d_lauryn.png" alt="Lauryn" loading="lazy"></button><figcaption><span>Lauryn</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="leon"><button type="button"><img src="character-designs/2022-2023/cmd1d_leon.png" alt="Leon" loading="lazy"></button><figcaption><span>Leon</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="lisa"><button type="button"><img src="character-designs/2022-2023/cmd1d_lisa.png" alt="Lisa" loading="lazy"></button><figcaption><span>Lisa</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="meike"><button type="button"><img src="character-designs/2022-2023/cmd1d_meike.png" alt="Meike" loading="lazy"></button><figcaption><span>Meike</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="sem"><button type="button"><img src="character-designs/2022-2023/cmd1d_sem.png" alt="Sem" loading="lazy"></button><figcaption><span>Sem</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="tuur"><button type="button"><img src="character-designs/2022-2023/cmd1d_tuur.png" alt="Tuur" loading="lazy"></button><figcaption><span>Tuur</span><small>CMD1D</small></figcaption></figure>
+    </div>
+  </section>
+  <section>
+    <h2>2023-2024 <span>38</span></h2>
+    <div class="grid">
+      <figure data-name="chris"><button type="button"><img src="character-designs/2023-2024/cmd1a_chris.png" alt="Chris" loading="lazy"></button><figcaption><span>Chris</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="dayahnara"><button type="button"><img src="character-designs/2023-2024/cmd1a_dayahnara.png" alt="Dayahnara" loading="lazy"></button><figcaption><span>Dayahnara</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="harmke"><button type="button"><img src="character-designs/2023-2024/cmd1a_harmke.png" alt="Harmke" loading="lazy"></button><figcaption><span>Harmke</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="hester"><button type="button"><img src="character-designs/2023-2024/cmd1a_hester.png" alt="Hester" loading="lazy"></button><figcaption><span>Hester</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="jakob"><button type="button"><img src="character-designs/2023-2024/cmd1a_jakob.png" alt="Jakob" loading="lazy"></button><figcaption><span>Jakob</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="job"><button type="button"><img src="character-designs/2023-2024/cmd1a_job.png" alt="Job" loading="lazy"></button><figcaption><span>Job</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="shania"><button type="button"><img src="character-designs/2023-2024/cmd1a_shania.png" alt="Shania" loading="lazy"></button><figcaption><span>Shania</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="shanice"><button type="button"><img src="character-designs/2023-2024/cmd1a_shanice.png" alt="Shanice" loading="lazy"></button><figcaption><span>Shanice</span><small>CMD1A</small></figcaption></figure>
+      <figure data-name="bas"><button type="button"><img src="character-designs/2023-2024/cmd1b_bas.png" alt="Bas" loading="lazy"></button><figcaption><span>Bas</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="guy"><button type="button"><img src="character-designs/2023-2024/cmd1b_guy.png" alt="Guy" loading="lazy"></button><figcaption><span>Guy</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="isa"><button type="button"><img src="character-designs/2023-2024/cmd1b_isa.png" alt="Isa" loading="lazy"></button><figcaption><span>Isa</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="jesse"><button type="button"><img src="character-designs/2023-2024/cmd1b_jesse.png" alt="Jesse" loading="lazy"></button><figcaption><span>Jesse</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="lezanne nap"><button type="button"><img src="character-designs/2023-2024/cmd1b_lezanne-nap.png" alt="Lezanne Nap" loading="lazy"></button><figcaption><span>Lezanne Nap</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="lezanne"><button type="button"><img src="character-designs/2023-2024/cmd1b_lezanne.png" alt="Lezanne" loading="lazy"></button><figcaption><span>Lezanne</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="paul"><button type="button"><img src="character-designs/2023-2024/cmd1b_paul.png" alt="Paul" loading="lazy"></button><figcaption><span>Paul</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="reno"><button type="button"><img src="character-designs/2023-2024/cmd1b_reno.png" alt="Reno" loading="lazy"></button><figcaption><span>Reno</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="tim"><button type="button"><img src="character-designs/2023-2024/cmd1b_tim.png" alt="Tim" loading="lazy"></button><figcaption><span>Tim</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="wes"><button type="button"><img src="character-designs/2023-2024/cmd1b_wes.png" alt="Wes" loading="lazy"></button><figcaption><span>Wes</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="wout"><button type="button"><img src="character-designs/2023-2024/cmd1b_wout.png" alt="Wout" loading="lazy"></button><figcaption><span>Wout</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="yente"><button type="button"><img src="character-designs/2023-2024/cmd1b_yente.png" alt="Yente" loading="lazy"></button><figcaption><span>Yente</span><small>CMD1B</small></figcaption></figure>
+      <figure data-name="daan"><button type="button"><img src="character-designs/2023-2024/cmd1c_daan.png" alt="Daan" loading="lazy"></button><figcaption><span>Daan</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="evy"><button type="button"><img src="character-designs/2023-2024/cmd1c_evy.png" alt="Evy" loading="lazy"></button><figcaption><span>Evy</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="fu"><button type="button"><img src="character-designs/2023-2024/cmd1c_fu.png" alt="Fu" loading="lazy"></button><figcaption><span>Fu</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="jarno"><button type="button"><img src="character-designs/2023-2024/cmd1c_jarno.png" alt="Jarno" loading="lazy"></button><figcaption><span>Jarno</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="leonie"><button type="button"><img src="character-designs/2023-2024/cmd1c_leonie.png" alt="Leonie" loading="lazy"></button><figcaption><span>Leonie</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="massimiliano presenza"><button type="button"><img src="character-designs/2023-2024/cmd1c_massimiliano-presenza.png" alt="Massimiliano Presenza" loading="lazy"></button><figcaption><span>Massimiliano Presenza</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="mats"><button type="button"><img src="character-designs/2023-2024/cmd1c_mats.png" alt="Mats" loading="lazy"></button><figcaption><span>Mats</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="tijn"><button type="button"><img src="character-designs/2023-2024/cmd1c_tijn.png" alt="Tijn" loading="lazy"></button><figcaption><span>Tijn</span><small>CMD1C</small></figcaption></figure>
+      <figure data-name="amira"><button type="button"><img src="character-designs/2023-2024/cmd1d_amira.png" alt="Amira" loading="lazy"></button><figcaption><span>Amira</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="bradley"><button type="button"><img src="character-designs/2023-2024/cmd1d_bradley.png" alt="Bradley" loading="lazy"></button><figcaption><span>Bradley</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="duco"><button type="button"><img src="character-designs/2023-2024/cmd1d_duco.png" alt="Duco" loading="lazy"></button><figcaption><span>Duco</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="lisan"><button type="button"><img src="character-designs/2023-2024/cmd1d_lisan.png" alt="Lisan" loading="lazy"></button><figcaption><span>Lisan</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="maryn"><button type="button"><img src="character-designs/2023-2024/cmd1d_maryn.png" alt="Maryn" loading="lazy"></button><figcaption><span>Maryn</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="maxine"><button type="button"><img src="character-designs/2023-2024/cmd1d_maxine.png" alt="Maxine" loading="lazy"></button><figcaption><span>Maxine</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="morris"><button type="button"><img src="character-designs/2023-2024/cmd1d_morris.png" alt="Morris" loading="lazy"></button><figcaption><span>Morris</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="romy"><button type="button"><img src="character-designs/2023-2024/cmd1d_romy.png" alt="Romy" loading="lazy"></button><figcaption><span>Romy</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="tessa"><button type="button"><img src="character-designs/2023-2024/cmd1d_tessa.png" alt="Tessa" loading="lazy"></button><figcaption><span>Tessa</span><small>CMD1D</small></figcaption></figure>
+      <figure data-name="thijn"><button type="button"><img src="character-designs/2023-2024/cmd1d_thijn.png" alt="Thijn" loading="lazy"></button><figcaption><span>Thijn</span><small>CMD1D</small></figcaption></figure>
+    </div>
+  </section>
+  <section>
+    <h2>2024-2025 <span>45</span></h2>
+    <div class="grid">
+      <figure data-name="ailin"><button type="button"><img src="character-designs/2024-2025/ailin.png" alt="Ailin" loading="lazy"></button><figcaption><span>Ailin</span><small></small></figcaption></figure>
+      <figure data-name="annabelle"><button type="button"><img src="character-designs/2024-2025/annabelle.png" alt="Annabelle" loading="lazy"></button><figcaption><span>Annabelle</span><small></small></figcaption></figure>
+      <figure data-name="boris"><button type="button"><img src="character-designs/2024-2025/boris.png" alt="Boris" loading="lazy"></button><figcaption><span>Boris</span><small></small></figcaption></figure>
+      <figure data-name="brett"><button type="button"><img src="character-designs/2024-2025/brett.png" alt="Brett" loading="lazy"></button><figcaption><span>Brett</span><small></small></figcaption></figure>
+      <figure data-name="britt"><button type="button"><img src="character-designs/2024-2025/britt.png" alt="Britt" loading="lazy"></button><figcaption><span>Britt</span><small></small></figcaption></figure>
+      <figure data-name="cas"><button type="button"><img src="character-designs/2024-2025/cas.png" alt="Cas" loading="lazy"></button><figcaption><span>Cas</span><small></small></figcaption></figure>
+      <figure data-name="cathelijne"><button type="button"><img src="character-designs/2024-2025/cathelijne.png" alt="Cathelijne" loading="lazy"></button><figcaption><span>Cathelijne</span><small></small></figcaption></figure>
+      <figure data-name="chaneyra"><button type="button"><img src="character-designs/2024-2025/chaneyra.png" alt="Chaneyra" loading="lazy"></button><figcaption><span>Chaneyra</span><small></small></figcaption></figure>
+      <figure data-name="ciaran"><button type="button"><img src="character-designs/2024-2025/ciaran.png" alt="Ciaran" loading="lazy"></button><figcaption><span>Ciaran</span><small></small></figcaption></figure>
+      <figure data-name="dewi"><button type="button"><img src="character-designs/2024-2025/dewi.png" alt="Dewi" loading="lazy"></button><figcaption><span>Dewi</span><small></small></figcaption></figure>
+      <figure data-name="dylana"><button type="button"><img src="character-designs/2024-2025/dylana.png" alt="Dylana" loading="lazy"></button><figcaption><span>Dylana</span><small></small></figcaption></figure>
+      <figure data-name="emily"><button type="button"><img src="character-designs/2024-2025/emily.png" alt="Emily" loading="lazy"></button><figcaption><span>Emily</span><small></small></figcaption></figure>
+      <figure data-name="etienne"><button type="button"><img src="character-designs/2024-2025/etienne.png" alt="Etienne" loading="lazy"></button><figcaption><span>Etienne</span><small></small></figcaption></figure>
+      <figure data-name="faye"><button type="button"><img src="character-designs/2024-2025/faye.png" alt="Faye" loading="lazy"></button><figcaption><span>Faye</span><small></small></figcaption></figure>
+      <figure data-name="gemay"><button type="button"><img src="character-designs/2024-2025/gemay.png" alt="Gemay" loading="lazy"></button><figcaption><span>Gemay</span><small></small></figcaption></figure>
+      <figure data-name="genaud"><button type="button"><img src="character-designs/2024-2025/genaud.png" alt="Genaud" loading="lazy"></button><figcaption><span>Genaud</span><small></small></figcaption></figure>
+      <figure data-name="ilja"><button type="button"><img src="character-designs/2024-2025/ilja.png" alt="Ilja" loading="lazy"></button><figcaption><span>Ilja</span><small></small></figcaption></figure>
+      <figure data-name="jelger"><button type="button"><img src="character-designs/2024-2025/jelger.png" alt="Jelger" loading="lazy"></button><figcaption><span>Jelger</span><small></small></figcaption></figure>
+      <figure data-name="jerome"><button type="button"><img src="character-designs/2024-2025/jerome.png" alt="Jerome" loading="lazy"></button><figcaption><span>Jerome</span><small></small></figcaption></figure>
+      <figure data-name="joa"><button type="button"><img src="character-designs/2024-2025/joa.png" alt="Joa" loading="lazy"></button><figcaption><span>Joa</span><small></small></figcaption></figure>
+      <figure data-name="job"><button type="button"><img src="character-designs/2024-2025/job.png" alt="Job" loading="lazy"></button><figcaption><span>Job</span><small></small></figcaption></figure>
+      <figure data-name="jordy"><button type="button"><img src="character-designs/2024-2025/jordy.png" alt="Jordy" loading="lazy"></button><figcaption><span>Jordy</span><small></small></figcaption></figure>
+      <figure data-name="joris jorisjeremia"><button type="button"><img src="character-designs/2024-2025/joris-jorisjeremia.png" alt="Joris Jorisjeremia" loading="lazy"></button><figcaption><span>Joris Jorisjeremia</span><small></small></figcaption></figure>
+      <figure data-name="joris jorisschaap"><button type="button"><img src="character-designs/2024-2025/joris-jorisschaap.png" alt="Joris Jorisschaap" loading="lazy"></button><figcaption><span>Joris Jorisschaap</span><small></small></figcaption></figure>
+      <figure data-name="julia"><button type="button"><img src="character-designs/2024-2025/julia.png" alt="Julia" loading="lazy"></button><figcaption><span>Julia</span><small></small></figcaption></figure>
+      <figure data-name="koen"><button type="button"><img src="character-designs/2024-2025/koen.png" alt="Koen" loading="lazy"></button><figcaption><span>Koen</span><small></small></figcaption></figure>
+      <figure data-name="levi 2"><button type="button"><img src="character-designs/2024-2025/levi-2.png" alt="Levi 2" loading="lazy"></button><figcaption><span>Levi 2</span><small></small></figcaption></figure>
+      <figure data-name="levi"><button type="button"><img src="character-designs/2024-2025/levi.png" alt="Levi" loading="lazy"></button><figcaption><span>Levi</span><small></small></figcaption></figure>
+      <figure data-name="lian"><button type="button"><img src="character-designs/2024-2025/lian.png" alt="Lian" loading="lazy"></button><figcaption><span>Lian</span><small></small></figcaption></figure>
+      <figure data-name="lina"><button type="button"><img src="character-designs/2024-2025/lina.png" alt="Lina" loading="lazy"></button><figcaption><span>Lina</span><small></small></figcaption></figure>
+      <figure data-name="marciano"><button type="button"><img src="character-designs/2024-2025/marciano.png" alt="Marciano" loading="lazy"></button><figcaption><span>Marciano</span><small></small></figcaption></figure>
+      <figure data-name="maria"><button type="button"><img src="character-designs/2024-2025/maria.png" alt="Maria" loading="lazy"></button><figcaption><span>Maria</span><small></small></figcaption></figure>
+      <figure data-name="mika"><button type="button"><img src="character-designs/2024-2025/mika.png" alt="Mika" loading="lazy"></button><figcaption><span>Mika</span><small></small></figcaption></figure>
+      <figure data-name="nils"><button type="button"><img src="character-designs/2024-2025/nils.png" alt="Nils" loading="lazy"></button><figcaption><span>Nils</span><small></small></figcaption></figure>
+      <figure data-name="nora"><button type="button"><img src="character-designs/2024-2025/nora.png" alt="Nora" loading="lazy"></button><figcaption><span>Nora</span><small></small></figcaption></figure>
+      <figure data-name="puck"><button type="button"><img src="character-designs/2024-2025/puck.png" alt="Puck" loading="lazy"></button><figcaption><span>Puck</span><small></small></figcaption></figure>
+      <figure data-name="quinten"><button type="button"><img src="character-designs/2024-2025/quinten.png" alt="Quinten" loading="lazy"></button><figcaption><span>Quinten</span><small></small></figcaption></figure>
+      <figure data-name="rafke"><button type="button"><img src="character-designs/2024-2025/rafke.png" alt="Rafke" loading="lazy"></button><figcaption><span>Rafke</span><small></small></figcaption></figure>
+      <figure data-name="runar"><button type="button"><img src="character-designs/2024-2025/runar.png" alt="Runar" loading="lazy"></button><figcaption><span>Runar</span><small></small></figcaption></figure>
+      <figure data-name="sam"><button type="button"><img src="character-designs/2024-2025/sam.png" alt="Sam" loading="lazy"></button><figcaption><span>Sam</span><small></small></figcaption></figure>
+      <figure data-name="sanne"><button type="button"><img src="character-designs/2024-2025/sanne.png" alt="Sanne" loading="lazy"></button><figcaption><span>Sanne</span><small></small></figcaption></figure>
+      <figure data-name="senn"><button type="button"><img src="character-designs/2024-2025/senn.png" alt="Senn" loading="lazy"></button><figcaption><span>Senn</span><small></small></figcaption></figure>
+      <figure data-name="sophie"><button type="button"><img src="character-designs/2024-2025/sophie.png" alt="Sophie" loading="lazy"></button><figcaption><span>Sophie</span><small></small></figcaption></figure>
+      <figure data-name="yris"><button type="button"><img src="character-designs/2024-2025/yris.png" alt="Yris" loading="lazy"></button><figcaption><span>Yris</span><small></small></figcaption></figure>
+      <figure data-name="yuna"><button type="button"><img src="character-designs/2024-2025/yuna.png" alt="Yuna" loading="lazy"></button><figcaption><span>Yuna</span><small></small></figcaption></figure>
+    </div>
+  </section>
+  <section>
+    <h2>2025-2026 <span>34</span></h2>
+    <div class="grid">
+      <figure data-name="anna"><button type="button"><img src="character-designs/2025-2026/anna.png" alt="Anna" loading="lazy"></button><figcaption><span>Anna</span><small></small></figcaption></figure>
+      <figure data-name="collin"><button type="button"><img src="character-designs/2025-2026/collin.png" alt="Collin" loading="lazy"></button><figcaption><span>Collin</span><small></small></figcaption></figure>
+      <figure data-name="daan"><button type="button"><img src="character-designs/2025-2026/daan.png" alt="Daan" loading="lazy"></button><figcaption><span>Daan</span><small></small></figcaption></figure>
+      <figure data-name="dani"><button type="button"><img src="character-designs/2025-2026/dani.png" alt="Dani" loading="lazy"></button><figcaption><span>Dani</span><small></small></figcaption></figure>
+      <figure data-name="evy"><button type="button"><img src="character-designs/2025-2026/evy.png" alt="Evy" loading="lazy"></button><figcaption><span>Evy</span><small></small></figcaption></figure>
+      <figure data-name="fabian"><button type="button"><img src="character-designs/2025-2026/fabian.png" alt="Fabian" loading="lazy"></button><figcaption><span>Fabian</span><small></small></figcaption></figure>
+      <figure data-name="faye"><button type="button"><img src="character-designs/2025-2026/faye.png" alt="Faye" loading="lazy"></button><figcaption><span>Faye</span><small></small></figcaption></figure>
+      <figure data-name="fenne"><button type="button"><img src="character-designs/2025-2026/fenne.png" alt="Fenne" loading="lazy"></button><figcaption><span>Fenne</span><small></small></figcaption></figure>
+      <figure data-name="fred"><button type="button"><img src="character-designs/2025-2026/fred.png" alt="Fred" loading="lazy"></button><figcaption><span>Fred</span><small></small></figcaption></figure>
+      <figure data-name="frederique"><button type="button"><img src="character-designs/2025-2026/frederique.png" alt="Frederique" loading="lazy"></button><figcaption><span>Frederique</span><small></small></figcaption></figure>
+      <figure data-name="gitte"><button type="button"><img src="character-designs/2025-2026/gitte.png" alt="Gitte" loading="lazy"></button><figcaption><span>Gitte</span><small></small></figcaption></figure>
+      <figure data-name="hala"><button type="button"><img src="character-designs/2025-2026/hala.png" alt="Hala" loading="lazy"></button><figcaption><span>Hala</span><small></small></figcaption></figure>
+      <figure data-name="jelle"><button type="button"><img src="character-designs/2025-2026/jelle.png" alt="Jelle" loading="lazy"></button><figcaption><span>Jelle</span><small></small></figcaption></figure>
+      <figure data-name="lieve"><button type="button"><img src="character-designs/2025-2026/lieve.png" alt="Lieve" loading="lazy"></button><figcaption><span>Lieve</span><small></small></figcaption></figure>
+      <figure data-name="lina"><button type="button"><img src="character-designs/2025-2026/lina.png" alt="Lina" loading="lazy"></button><figcaption><span>Lina</span><small></small></figcaption></figure>
+      <figure data-name="lis"><button type="button"><img src="character-designs/2025-2026/lis.png" alt="Lis" loading="lazy"></button><figcaption><span>Lis</span><small></small></figcaption></figure>
+      <figure data-name="luca"><button type="button"><img src="character-designs/2025-2026/luca.png" alt="Luca" loading="lazy"></button><figcaption><span>Luca</span><small></small></figcaption></figure>
+      <figure data-name="mare"><button type="button"><img src="character-designs/2025-2026/mare.png" alt="Mare" loading="lazy"></button><figcaption><span>Mare</span><small></small></figcaption></figure>
+      <figure data-name="max"><button type="button"><img src="character-designs/2025-2026/max.png" alt="Max" loading="lazy"></button><figcaption><span>Max</span><small></small></figcaption></figure>
+      <figure data-name="meneer rob"><button type="button"><img src="character-designs/2025-2026/meneer-rob.png" alt="Meneer Rob" loading="lazy"></button><figcaption><span>Meneer Rob</span><small></small></figcaption></figure>
+      <figure data-name="ming lei"><button type="button"><img src="character-designs/2025-2026/ming-lei.png" alt="Ming Lei" loading="lazy"></button><figcaption><span>Ming Lei</span><small></small></figcaption></figure>
+      <figure data-name="noah"><button type="button"><img src="character-designs/2025-2026/noah.png" alt="Noah" loading="lazy"></button><figcaption><span>Noah</span><small></small></figcaption></figure>
+      <figure data-name="nuriya"><button type="button"><img src="character-designs/2025-2026/nuriya.png" alt="Nuriya" loading="lazy"></button><figcaption><span>Nuriya</span><small></small></figcaption></figure>
+      <figure data-name="osker"><button type="button"><img src="character-designs/2025-2026/osker.png" alt="Osker" loading="lazy"></button><figcaption><span>Osker</span><small></small></figcaption></figure>
+      <figure data-name="pam"><button type="button"><img src="character-designs/2025-2026/pam.png" alt="Pam" loading="lazy"></button><figcaption><span>Pam</span><small></small></figcaption></figure>
+      <figure data-name="paris"><button type="button"><img src="character-designs/2025-2026/paris.png" alt="Paris" loading="lazy"></button><figcaption><span>Paris</span><small></small></figcaption></figure>
+      <figure data-name="reza"><button type="button"><img src="character-designs/2025-2026/reza.png" alt="Reza" loading="lazy"></button><figcaption><span>Reza</span><small></small></figcaption></figure>
+      <figure data-name="ryan"><button type="button"><img src="character-designs/2025-2026/ryan.png" alt="Ryan" loading="lazy"></button><figcaption><span>Ryan</span><small></small></figcaption></figure>
+      <figure data-name="sarea"><button type="button"><img src="character-designs/2025-2026/sarea.png" alt="Sarea" loading="lazy"></button><figcaption><span>Sarea</span><small></small></figcaption></figure>
+      <figure data-name="simon"><button type="button"><img src="character-designs/2025-2026/simon.png" alt="Simon" loading="lazy"></button><figcaption><span>Simon</span><small></small></figcaption></figure>
+      <figure data-name="tameron"><button type="button"><img src="character-designs/2025-2026/tameron.png" alt="Tameron" loading="lazy"></button><figcaption><span>Tameron</span><small></small></figcaption></figure>
+      <figure data-name="yasmine"><button type="button"><img src="character-designs/2025-2026/yasmine.png" alt="Yasmine" loading="lazy"></button><figcaption><span>Yasmine</span><small></small></figcaption></figure>
+      <figure data-name="youri"><button type="button"><img src="character-designs/2025-2026/youri.png" alt="Youri" loading="lazy"></button><figcaption><span>Youri</span><small></small></figcaption></figure>
+      <figure data-name="zenna"><button type="button"><img src="character-designs/2025-2026/zenna.png" alt="Zenna" loading="lazy"></button><figcaption><span>Zenna</span><small></small></figcaption></figure>
+    </div>
+  </section>
+  <dialog><img alt=""><p></p></dialog>
+<script>
+  const dlg = document.querySelector("dialog"), big = dlg.querySelector("img"), cap = dlg.querySelector("p");
+  document.querySelectorAll("figure button").forEach(b => b.onclick = () => {
+    const img = b.querySelector("img"); big.src = img.src; big.alt = img.alt;
+    cap.textContent = b.parentElement.querySelector("figcaption").textContent.replace(/(CMD1\w)$/, " · $1");
+    dlg.showModal();
+  });
+  dlg.onclick = () => dlg.close();
+  document.querySelector("input").oninput = e => {
+    const q = e.target.value.toLowerCase().trim();
+    document.querySelectorAll("figure").forEach(f => f.hidden = q && !f.dataset.name.includes(q));
+    document.querySelectorAll("section").forEach(s => s.hidden = !s.querySelector("figure:not([hidden])"));
+  };
+</script>
+</body>
+</html>
