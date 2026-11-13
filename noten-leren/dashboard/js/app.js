@@ -124,7 +124,8 @@ async function checkAccess() {
   }
   try {
     await getDoc(doc(db, 'config', 'teachers'));
-  } catch {
+  } catch (err) {
+    if (err.code !== 'permission-denied') throw err; // e.g. offline: don't blame the teacher list
     $('db-denied-text').textContent = `${user.email} is not on the teacher list yet. In the Firebase console, open Firestore → config → teachers and add this address to "emails". Then click "Try again".`;
     show('denied');
     return;
@@ -586,15 +587,24 @@ function initMain() {
   $('db-del-results').addEventListener('click', async () => {
     const s = students.find((x) => x.code === selected);
     if (!s || !confirm(`Delete all results of ${s.name}?`)) return;
-    await deleteResults(s.code);
+    try {
+      await deleteResults(s.code);
+    } catch (err) {
+      alert('Could not delete the results: ' + err.message);
+    }
     selectStudent(s.code);
   });
   $('db-del-student').addEventListener('click', async () => {
     const s = students.find((x) => x.code === selected);
     if (!s || !confirm(`Delete ${s.name} and all their results? Their personal link and code stop working.`)) return;
-    await deleteResults(s.code);
-    await deleteDoc(doc(db, 'students', s.code));
-    if (s.shortCode) await deleteDoc(doc(db, 'codes', s.shortCode)).catch(() => {});
+    try {
+      await deleteResults(s.code);
+      await deleteDoc(doc(db, 'students', s.code));
+      if (s.shortCode) await deleteDoc(doc(db, 'codes', s.shortCode)).catch(() => {});
+    } catch (err) {
+      alert('Could not delete the student: ' + err.message);
+      return;
+    }
     selected = null;
     $('db-student').hidden = true;
     $('db-empty').hidden = false;
@@ -604,9 +614,13 @@ function initMain() {
     if (!confirm('Delete all results older than 12 months, for all your students?')) return;
     const cutoff = new Date(Date.now() - 365 * DAY);
     let total = 0;
-    for (const s of students) total += await deleteResults(s.code, cutoff);
     const msg = $('db-cleanup-msg');
-    msg.textContent = `${total} old result(s) deleted.`;
+    try {
+      for (const s of students) total += await deleteResults(s.code, cutoff);
+      msg.textContent = `${total} old result(s) deleted.`;
+    } catch (err) {
+      msg.textContent = `Stopped after ${total} deleted result(s): ${err.message}`;
+    }
     msg.hidden = false;
     if (selected) selectStudent(selected);
   });

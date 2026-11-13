@@ -137,6 +137,35 @@ button, a, input, select, label { touch-action: manipulation; }
 .code-form { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: center; margin: 10px 0 0; }
 .code-form input { font: inherit; font-size: 1.3rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; width: 11em; max-width: 100%; padding: 8px 10px; border: 3px solid #d9d2f3; border-radius: 12px; }
 .code-msg { flex-basis: 100%; margin: 0; font-size: 0.9rem; color: var(--muted); }
+.metronome { margin-top: 18px; }
+.metronome h2 { font-size: 1.5rem; margin-bottom: 0; }
+.metro-lead { margin: 2px 0 14px; color: var(--muted); }
+.metro-tempo { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.metro-display {
+  min-width: 6.2em; padding: 6px 16px; font-size: 2.2rem; font-weight: 900; white-space: nowrap;
+  background: #f5f2ff; border: 3px solid #e3def5; border-radius: 18px;
+  font-variant-numeric: tabular-nums; transition: background 0.12s, border-color 0.12s;
+}
+.metro-display.beat { background: #fff4d6; border-color: var(--sun); transition: none; }
+.metro-note { font-family: 'Apple Symbols', 'Segoe UI Symbol', 'Noto Sans Symbols2', 'Noto Music', sans-serif; font-weight: 400; font-size: 1.3em; line-height: 1; }
+.metro-step {
+  font: inherit; font-size: 1.8rem; font-weight: 900; line-height: 1; color: var(--ink);
+  width: 54px; height: 54px; flex: none; border: 0; border-radius: 50%; cursor: pointer;
+  background: #ece8ff; box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+  transition: transform 0.08s, box-shadow 0.08s; user-select: none; -webkit-user-select: none; touch-action: manipulation;
+}
+.metro-step:active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1); }
+.metro-step:disabled { opacity: 0.4; cursor: default; transform: none; }
+.metro-step:focus-visible { outline: 4px solid var(--sun); outline-offset: 3px; }
+.metro-range { display: block; width: min(100%, 420px); margin: 16px auto 0; accent-color: var(--primary); height: 32px; }
+.metro-scale { display: flex; justify-content: space-between; width: min(100%, 420px); margin: 0 auto 14px; font-size: 0.85rem; color: var(--muted); }
+.btn-stop { background: var(--warn); }
+.metro-help { max-width: 520px; margin: 18px auto 0; text-align: left; font-size: 1rem; }
+.metro-help summary { cursor: pointer; font-weight: 800; color: var(--primary); text-align: center; padding: 6px; border-radius: 12px; }
+.metro-help summary:focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
+.metro-help p, .metro-help ul { margin: 8px 0; }
+.metro-help ul { padding-left: 1.2em; }
+.metro-help-now { background: #f5f2ff; border-radius: 12px; padding: 8px 12px; font-weight: 800; }
 .result-shared { font-size: 0.95rem; color: var(--muted); margin: 4px 0 0; }
 
 .quiz-top { grid-area: top; display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
@@ -256,6 +285,9 @@ button, a, input, select, label { touch-action: manipulation; }
   .panel { padding: 20px 16px; }
   .lead { font-size: 1.15rem; }
   .big-emoji { font-size: 4rem; }
+  .metronome { margin-top: 12px; }
+  .metro-display { font-size: 1.8rem; padding: 6px 10px; }
+  .metro-step { width: 48px; height: 48px; }
   .instrument-picker { gap: 8px; }
   .inst-btn { width: calc((100% - 16px) / 3); max-width: 120px; font-size: 1rem; padding: 8px 4px; }
   .inst-btn .inst-icon { font-size: 2.2rem; }

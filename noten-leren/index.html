@@ -22,6 +22,7 @@
   <script src="js/staff.js" defer></script>
   <script src="js/settings.js" defer></script>
   <script src="js/quiz.js" defer></script>
+  <script src="js/metronome.js" defer></script>
   <script src="js/firebase-config.js" defer></script>
   <script src="js/app.js" defer></script>
 </head>
@@ -57,6 +58,33 @@
       </form>
       <button id="quiz-settings" class="settings-btn" type="button">⚙️ Instellingen</button>
     </div>
+
+    <section id="metronome" class="panel center metronome" aria-labelledby="metro-title">
+      <h2 id="metro-title">⏱️ Metronoom</h2>
+      <p class="metro-lead">Tikt de maat terwijl jij speelt.</p>
+      <div class="metro-tempo">
+        <button id="metro-slower" class="metro-step" type="button" aria-label="Langzamer">−</button>
+        <div id="metro-display" class="metro-display" role="status" aria-label="Snelheid">
+          <span class="metro-note" aria-label="kwartnoot">♩</span> = <strong id="metro-bpm">100</strong>
+        </div>
+        <button id="metro-faster" class="metro-step" type="button" aria-label="Sneller">+</button>
+      </div>
+      <input id="metro-range" class="metro-range" type="range" min="40" max="208" step="1" value="100" aria-label="Snelheid in tikken per minuut">
+      <div class="metro-scale" aria-hidden="true"><span>🐢 langzaam</span><span>snel 🐇</span></div>
+      <button id="metro-toggle" class="btn btn-big btn-go" type="button" aria-pressed="false">▶ Start</button>
+      <p id="metro-msg" class="audio-msg" role="alert" hidden></p>
+      <details class="metro-help">
+        <summary>Wat betekent ♩ = 116?</summary>
+        <p>Boven een muziekstuk staat vaak zoiets als <strong>♩ = 116</strong>. Dat is het <strong>tempo</strong>: hoe snel je het stuk speelt.</p>
+        <ul>
+          <li>Het nootje <strong>♩</strong> is een kwartnoot. Die duurt één tel.</li>
+          <li>Het getal zegt hoeveel tellen er in één minuut passen. Bij ♩ = 116 zijn dat 116 tellen.</li>
+          <li>Hoe hoger het getal, hoe sneller. ♩ = 60 is precies één tik per seconde.</li>
+        </ul>
+        <p>Zet de metronoom op het getal uit je boek en speel bij elke tik één kwartnoot. Lukt het nog niet? Kies een lager getal en ga daarna stap voor stap sneller.</p>
+        <p id="metro-help-now" class="metro-help-now"></p>
+      </details>
+    </section>
 
     <div id="quiz-play" class="quiz-play" hidden>
       <div class="quiz-top">

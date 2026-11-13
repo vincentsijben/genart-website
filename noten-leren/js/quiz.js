@@ -17,6 +17,7 @@ const Quiz = (() => {
 
   function showPanel(name) {
     ['start', 'play', 'end'].forEach((p) => { el[p].hidden = p !== name; });
+    document.dispatchEvent(new CustomEvent('quiz-panel', { detail: name })); // the metronome is start-screen only
   }
 
   function buildButtons(s) {

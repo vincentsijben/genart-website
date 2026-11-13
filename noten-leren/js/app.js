@@ -64,11 +64,14 @@
   function rememberCode(params) {
     const code = (params.get('code') || '').toUpperCase();
     if (/^[A-Z0-9]{8}$/.test(code)) {
-      try { localStorage.setItem(CODE_KEY, short); } catch { /* private mode */ }
+      try { localStorage.setItem(CODE_KEY, code); } catch { /* private mode */ }
     }
   }
 
-  const online = () => Boolean(window.FIREBASE_CONFIG) || localStorage.getItem('saxnoten.emulator') === '1';
+  const online = () => {
+    if (window.FIREBASE_CONFIG) return true;
+    try { return localStorage.getItem('saxnoten.emulator') === '1'; } catch { return false; }
+  };
   let activeCode = null;
   let progress = null;
 
